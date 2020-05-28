@@ -1,0 +1,25 @@
+<view class="header"></view>
+
+
+<view class="top">
+<view class="top_info">
+
+<view class="top_info_image">
+<view class="img"><image src="/image/33.png"></image></view>
+<view class="name">
+<view class="name_name">支付成功</view>
+<view class="name_wxchat">使用微信支付成功</view>
+</view>
+</view>
+<view class="money">
+<view class="money_info">￥<text>{{money}}</text></view>
+
+</view>
+
+</view>
+</view>
+
+
+<view class="botton" bindtap="manage">返回商家管理</view>
+
+<view class="botton1" bindtap="contion">继续购买</view>

@@ -1,0 +1,109 @@
+<!--第一张照片-->
+<view class="photo">
+<image src="{{imageUrl}}{{index_data.shop_img}}" ></image>
+</view>
+
+<!--店铺的具体信息-->
+<view class="bg">
+<view class="specific">
+<view class="specific_name">
+<view>{{index_data.shopName}}</view>
+<image src="/image/67.png" wx:if="{{index_data.is_cash_money == 1}}" ></image>
+</view>
+<view class="specific_image" >
+<view class="image">{{index_data.shop_brief}}</view>
+</view>
+<view class="specific_address">
+<view class="address" bindtap="address_info">
+<image src="/image/2.png"></image>
+<view>{{index_data.address}}</view>
+</view>
+<view class="line">|</view>
+<view class="phone" >
+<image src="/image/1.png"></image>
+<view wx:if="{{ phone == ''}}" bindtap="photo">商家电话</view>
+<view wx:if="{{ phone != ''}}" bindtap="call">{{phone}}</view>
+</view>
+</view>
+
+</view>
+
+<!--排行榜-->
+<view class="rank"></view>
+<view class="rank_all">
+<view class="rank_info">
+<image src="/image/67.png" wx:if="{{index_data.is_cash_money == 1}}"></image>
+<view>店铺排行榜第<text>{{index_data.get_i}}</text>名</view>
+</view>
+<image src="/image/68.png" class="right"></image>
+</view>
+</view>
+
+<!--商品-->
+<view class="shop">
+<view class="shop_name">
+<view class="name {{ type == 1 ? 'active':''}}" bindtap="shop" data-index="1">评价</view>
+<view class="name {{ type == 2 ? 'active':''}}" bindtap="shop" data-index='2'>商品</view>
+<view class="name {{ type == 3 ? 'active':''}}" bindtap="shop" data-index='3'>商家程序码</view>
+</view>
+
+<!--商品的详细信息-->
+<view class="info" wx:if="{{type == 2}}" bindtap="info" data-id="{{p.goods_id}}" wx:for="{{index_data.goods}}" wx:for-item="p">
+ <view class="info_image"> <image src="{{imageUrl}}{{p.default_imgurl}}"></image></view>    
+<view class="info_name">
+<view class="name">{{p.name}}</view>
+<view class="info_address">
+<image src="/image/2.png"></image>
+<view>{{p.address}}</view>
+</view>
+<view class="info_number">
+<view class="info_nomber_money">
+<view class="money1">￥{{p.now_price}}</view>
+<view class="money2">{{p.orgin_price}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+<!--评价-->
+<view class="assess_all" wx:if="{{type == 1}}" wx:for="{{index_data.discuss}}" wx:for-item="d">
+<view class="assess">
+<view class="assess_image">
+<view class="assess_image_image"><image src="{{d.weixin_headimgurl}}"></image></view>
+<view class="assess_name">{{d.weixin_name}}</view>
+</view>
+
+<view class="assess_info">
+<view>{{d.discuss}}</view>
+</view>
+
+<view class="assess_img" >
+<view class="assess_img_img" wx:for="{{d.discussimg}}" wx:for-item="i"><image src="{{imageUrl}}{{i}}" data-index="{{index}}" data-list="{{d.discussimg}}" bindtap="imgYu_1" mode="widthFix"></image></view>
+</view>
+
+<view class="assess_time">{{d.createtime}}</view>
+</view>
+
+
+
+</view>
+
+
+<!--程序码-->
+<view wx:if="{{type == 3}}">
+<view class="footer">
+<image src="{{index_data_1.url_path}}" data-list="{{index_data_1.url_path}}" bindtap="imgYu"></image>
+</view>
+
+</view>
+
+
+
+
+
+
+
+
+

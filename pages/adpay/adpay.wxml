@@ -1,0 +1,62 @@
+
+ <import src="../../wxParse/wxParse.wxml"/>  
+
+<view class="header"></view>
+
+
+<!--广告位 -->
+<view class="ad">
+<view class="ad_info">
+<image src="/image/c2-2.png"></image>
+<view>专属电话</view>
+</view>
+<view class="info" >
+
+<view class="ad_money {{ select == index ? 'active': ''}}" data-id="{{item.id}}" wx:for="{{index_data.arr}}" data-index="{{index}}"  bindtap="ad">
+<view class="money"><text>{{item.money}}</text>元</view>
+<view class="day">{{item.time}}天</view>
+</view>
+
+
+
+
+</view>
+
+</view>
+
+<!--温馨提示 -->
+<view class="prompt">
+  <view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+
+<!--支付方式 -->
+<view class="pay">
+<view class="pay_info">选择支付方式</view>
+<view class="wxchat_info">
+<view class="wxchat">
+<image src="/image/52.png"></image>
+<view>微信支付</view>
+</view>
+<checkbox class="chenckbox"  checked="{{check}}"/>
+</view>
+
+</view>
+
+
+<!--支付-->
+<view class="button" bindtap="button">支付</view>
+
+
+
+
+
+
+
+
+
+
+
+
+

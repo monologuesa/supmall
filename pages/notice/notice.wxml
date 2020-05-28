@@ -1,0 +1,67 @@
+<view class="header"></view>
+
+<!---->
+<view class="top">
+<view class="top_name {{type == 0 ? 'active':''}}" bindtap="top" data-index="0" >系统公告<text class="round" wx:if="{{index_data.msg_num.type_num1 == 1}}"></text></view>
+<view class="top_name {{type == 1 ? 'active':''}}" bindtap="top" data-index="1">交易物流<text class="round" wx:if="{{index_data.msg_num.type_num2 == 1}}"></text></view>
+<view class="top_name {{type == 2 ? 'active':''}}" bindtap="top" data-index="2">点赞<text class="round" wx:if="{{index_data.msg_num.type_num3 == 1}}"></text></view>
+<view class="top_name {{type == 3 ? 'active':''}}" bindtap="top" data-index="3">景点评论<text class="round" wx:if="{{index_data.msg_num.type_num4 == 1}}"></text></view>
+</view>
+
+
+<!--系统公告-->
+<view class="content" >
+<view class="content_info" wx:if="{{type == 0}}" wx:for="{{index_data.msg}}" bindlongtap="longPress" data-id="{{item.id}}">
+<text class="name" selectable='true' bindtap="copy" data-index="{{index}}">{{item.content}}</text>
+<text class="time" selectable='true'>{{item.createtime}} </text>
+</view>
+</view>
+
+<!--交易物流-->
+<view class="in" wx:if="{{type == 1}}" wx:for="{{index_data.msg}}" bindlongtap="longPress" data-id="{{item.id}}">
+<view class="in_info" >
+<view>{{item.content}}</view>
+<text>{{item.createtime}}</text>
+</view>
+<view wx:for="{{item.goods}}" wx:for-item="p">
+<view class="in_image" >
+<view class="image"><image src="{{imageUrl}}{{p.default_imgurl}}"></image></view>
+<view class="in_name">
+<view>{{p.pname}}</view>
+</view>
+</view>
+</view>
+</view>
+
+<!--点赞-->
+<view class="content" wx:if="{{type == 2}}" wx:for="{{index_data.msg}}" bindlongtap="longPress" data-id="{{item.id}}">
+<view class="content_info">
+<view class="name">{{item.content}}</view>
+<view class="time">{{item.createtime}} </view>
+</view>
+</view>
+
+<!--景点评论-->
+<view class="content" wx:if="{{type == 3}}" wx:for="{{index_data.msg}}" bindlongtap="longPress" data-id="{{item.id}}">
+<view class="content_info">
+<view class="name">{{item.content}}</view>
+<view class="time">{{item.createtime}} </view>
+</view>
+<form bindsubmit="formSubmit" data-id="{{item.s_id}}" data-type="{{item.get_type}}" data-bid="{{item.write_back_id}}" data-blev="{{item.write_back_level}}" data-buser="{{item.write_back_user}}">
+<view class="number_image">
+<input placeholder="说点什么...." name = "name" value="{{name}}"></input>
+<button form-type="submit" class="number_name">发送</button>
+</view>
+</form>
+</view>
+
+
+
+
+
+
+
+
+
+
+

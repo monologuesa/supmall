@@ -1,0 +1,101 @@
+<view class="header"></view>
+
+<!--进度条-->
+<view class="top">
+<view class="top_all">
+<view class="img1"><image src="/image/35.png"></image></view>
+<view class="name">已提交</view>
+</view>
+<view class="top_all">
+<view class="img1"><image src="/image/35.png"></image></view>
+<view class="name">退款中</view>
+</view>
+<view class="top_all">
+<view class="img1 last"><image src="/image/35.png"></image></view>
+<view class="name">待完成</view>
+</view>
+</view>
+
+<!--个人信息-->
+<view class="address">
+<view class="address_info">
+<view class="address_name">
+<image src="/image/person6.png" class="person6"></image>
+<view class="name">
+<view class="name1">
+<view>陈华鑫</view>
+<text>15906099099</text>
+</view>
+<view class="info">
+<view>福建省 厦门市 湖里区  钟宅村1053</view>
+</view>
+</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+</view>
+
+<!--商品信息-->
+<view class="shop">
+<view class="shop_info">
+<view class="img"><image src="/image/11.jpg"></image></view>
+<view class="shop_name">
+<view class="name">金龙鱼 东北大米 蟹稻共生 盘锦大 米5KG</view>
+<view class="shop_num">
+<view class="day">七天无理由退换</view>
+</view>
+</view>
+</view>
+<view class="money">
+<view>商品总价</view>
+<text>￥36.90</text>
+</view>
+<view class="fare">
+<view>运费(快递)</view>
+<text>￥0.00</text>
+</view>
+<view class="money_1">
+<view>商品总价</view>
+<text>￥36.90</text>
+</view>
+<view class="reality">
+<view>实付价格</view>
+<text>￥36.90</text>
+</view>
+</view>
+
+<!--订单信息-->
+<view class="infor">
+<view class="infor_name">订单信息</view>
+<view class="infor_pay">
+<view>订单编号：</view>
+<text>12345678998745</text>
+</view>
+<view class="infor_pay">
+<view>创建时间：</view>
+<text>2019-10-23</text>
+</view>
+<view class="infor_pay">
+<view>付款时间：</view>
+<text>2019-10-23  </text>
+</view>
+<view class="infor_pay">
+<view>发货时间：</view>
+<text>2019-10-23</text>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+<view class="header"></view>
+
+<view class="header_name">
+<image src="/image/5.png" wx:if="{{sort == 1}}"></image>
+<image src="/image/76.png" wx:if="{{sort == 2}}" class="img"></image>
+<view wx:if="{{sort == 1}}">请香</view>
+<view wx:if="{{sort == 2}}">祈福</view>
+</view>
+
+<!--请香内容-->
+<view class="top">
+<view class="top_info">
+<view class="top_n">
+<view class="top_image"><image src="{{imageUrl}}{{index_data.list.img}}"></image></view>
+<view class="top_name">
+<view class="name1" wx:if="{{sort == 1}}">请香寺庙：<text>{{index_data.list.pname}}</text></view>
+<view class="name1" wx:if="{{sort == 2}}">祈福寺庙：<text>{{index_data.list.pname}}</text></view>
+<!--祈福的金额-->
+<view class="name2" wx:if="{{type == 0 && sort == 2}}">祈福金额: <text> ￥{{index_data.list.please_sweet_money}}</text></view>
+<view class="name2" wx:if="{{type == 2 && sort == 2}}">祈福金额: <text> {{money}}积分</text></view>
+<view class="name2" wx:if="{{type == 3 && sort == 2}}">祈福金额: <text> 0</text></view>
+<!--请香的金额-->
+<view class="name2" wx:if="{{type == 0 && sort == 1}}">请香金额: <text> ￥{{index_data.list.please_sweet_money}}</text></view>
+<view class="name2" wx:if="{{type == 2 && sort == 1}}">请香金额: <text> {{money}}积分</text></view>
+<view class="name2" wx:if="{{type == 3 && sort == 1}}">请香金额: <text> 0</text></view>
+
+</view>
+</view>
+</view>
+</view>
+
+<!--选择支付方式-->
+<view class="in">
+<view class="in_way">选择支付方式</view>
+<view class="in_info" data-index="0" data-integral="{{index_data.list.please_sweet_money}}" bindtap="click">
+<view class="in_info_image">
+<image src="/image/52.png"></image>
+<view>微信支付</view>
+</view>
+<checkbox  checked="{{type == 0 ? 'true' : ''}}"/>
+</view>
+<view class="in_info" data-index="2" data-money="{{index_data.list.please_sweet_integral}}" bindtap="click">
+<view class="in_info_image">
+<image src="/image/71.png"></image>
+<view>积分支付</view>
+</view>
+<checkbox  checked="{{type == 2 ? 'true' : ''}}"/>
+</view>
+<view class="in_info" data-index="3" bindtap="click">
+<view class="in_info_image">
+<image src="/image/72.png"></image>
+<view>免费支付</view>
+</view>
+<checkbox  checked="{{type == 3 ? 'true' : ''}}"/>
+</view>
+
+</view>
+
+
+
+<!--支付-->
+<view class="button">
+<!--祈福-->
+<view wx:if="{{type == 0 && sort == 2}}" bindtap="button">确认支付：<text> ￥{{index_data.list.please_sweet_money}}</text></view>
+<view wx:if="{{type == 2 && sort == 2}}" bindtap="button">确认支付:<text> {{money}}积分</text></view>
+<view wx:if="{{type == 3 && sort == 2}}" bindtap="button">确认支付：<text> 0</text></view>
+<!--请香-->
+<view wx:if="{{type == 0 && sort == 1}}" bindtap="button">确认支付：<text> ￥{{index_data.list.please_sweet_money}}</text></view>
+<view wx:if="{{type == 2 && sort == 1}}" bindtap="button">确认支付：<text> {{money}}积分</text></view>
+<view wx:if="{{type == 3 && sort == 1}}" bindtap="button">确认支付：<text> 0</text></view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

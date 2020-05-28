@@ -1,0 +1,41 @@
+<!--这是一张照片-->
+<view class="image">
+<image src="http://youte.xmtzxm.com.cn/weixinpl/youte/common_img/70.png"></image>
+</view>
+
+<!-- 店铺刷新
+<view class="refresh" bindtap="rank">
+<view class="img">
+<image src="/image/c2-2.png" class="c2"></image>
+<view>商品刷新</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view> -->
+
+<!--店铺的具体信息-->
+<view wx:for="{{index_data}}">
+<view class="info" bindtap="jump" data-id="{{item.goods_id}}">
+ <view class="info_image"> <image src="{{imageUrl}}{{item.default_imgurl}}"></image></view>    
+<view class="info_name">
+<view class="name">{{item.goods_name}}</view>
+<view class="info_address">
+<image src="/image/person6.png"></image>
+<view>{{item.address}}</view>
+</view>
+<view class="info_number">
+<image src="/image/per-nav6.png"></image>
+<view class="money">
+<view>销量</view>
+<view>{{item.zong_sell_count}}</view>
+</view>
+</view>
+</view>
+
+</view>
+</view>
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+
+<view>
+<!--头部-->
+<view class="header">
+<!-- <view class="header_address" bindtap="hideModal"> -->
+<view class="header_address">
+<view class="address_info" bindtap="click_4">
+<image src="/image/address.png" class="address"></image>
+<view>{{city_1}}</view>
+<image src="/image/18.png" class="right"></image>
+</view>
+</view>
+<!--搜索栏-->
+<form bindsubmit="form">
+  <view class="aa">
+    <button formType="submit" class="button">搜索</button>
+    <input  name="text" placeholder="搜索你想要的内容....." bindtap="show" class="input" value="{{getName}}"/>
+  </view>  
+</form>
+</view>
+<!--头部结束-->
+<!--轮播图-->
+ <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="gray"indicator-active-color="white" >
+     <block wx:for="{{index_data.img}}" wx:key="item" wx:for-item="p" class="block">
+      <swiper-item>
+        <image src="{{p.advertising_img}}" class="image1" data-id="{{p.goods_id}}" bindtap="jump"></image>
+        </swiper-item>
+    </block>
+  </swiper>
+
+<!--创建景点-->
+<view class="create">
+<view bindtap="click_1">
+<view class="create_info">
+<image src="/image/37.png"></image><text >创建美食攻略</text>
+</view>
+</view>
+<view bindtap="click_2">
+<view class="create_info">
+<image src="/image/61.png"></image><text >筛选</text>
+</view>
+</view>
+</view>
+
+<view class="in" >
+<view wx:for="{{index_data.arr}}" data-index="{{index}}" data-id="{{item.type_id}}" bindtap="click" class="in_info">
+<view class="in_name {{ type == item.get_i ? 'active' : ''}}">{{item.type_name}}</view>
+</view>
+</view>
+
+
+
+<view class="all">
+<!--攻略信息--> 
+<view class="specialty_msg">
+<view class="specialty_info" wx:for="{{index_data_1}}" wx:for-item="p" data-id="{{p.id}}" bindtap="jump">
+<image src="{{imageUrl}}{{p.img}}"></image>
+<view class="specialty_info_name">{{p.name}}</view>
+<view class="specialty_info_position">
+ <image src="/image/person6.png"></image>
+ <view>{{p.address}}</view>
+</view>
+</view>
+</view>
+
+</view>
+
+
+
+<!--隐藏的地方-->
+<view wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="mark_info">
+
+<form bindsubmit="formSubmit" >
+<view class="mark_info_name">
+<view class="image_info">
+<view class="image" wx:if="{{imgArr}}"  wx:for="{{imgArr}}"><icon type="clear" class="inco" size="23" catchtap="clearImg" data-index="{{index}}"/><image src="{{imageUrl}}{{item}}"></image></view>
+<view class="image" bindtap="addimage" wx:if="{{imgArr.length < 9}}"><image src="/image/31.png"></image></view>
+</view>
+
+
+<input placeholder="美食攻略标题" name='title'></input>
+</view>
+
+<view class="info_1">
+<scroll-view scroll-x="true">
+<view class="info_1_in" wx:for="{{index_data.arr}}" data-id="{{item.type_id}}" data-index="{{index}}" bindtap="choose">
+<view class="info_1_in_1">
+<checkbox checked="{{sort == item.get_i ? 'true' : '' }}"/>
+<view class="info_1_in_name">{{item.type_name}}</view>
+</view>
+</view>
+</scroll-view>
+</view>
+
+<view class="information">
+<textarea placeholder="添加美食攻略" name='name'></textarea>
+</view>
+<view class="position" bindtap="click_5">
+<image src="/image/person6.png"></image>
+<view wx:if="{{address_1 == ''}}">地理位置</view>
+<view wx:if="{{address_1 != ''}}">{{address_1}}</view>
+</view>
+
+<view class="click">
+<button class="click_info" form-type="submit">发布</button>
+</view>
+</form>
+</view>
+</view>
+</view>
+
+<!--筛选的信息-->
+<view wx:if="{{hide_1}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="filter">
+<view class="popularity {{type_1 == 1 ? 'text':'' }}" data-index="1" bindtap="click_6">人气</view>
+<view class="near {{type_1 == 2 ? 'text':'' }}" data-index="2" bindtap="click_6">离我最近</view>
+</view>
+</view>
+
+
+
+<!--搜索的商品-->
+<view class="footer" wx:if="{{hide_2}}">
+<view class="mark_1" bindtap="hideModal"></view>
+<view class="footer_info">
+<!--攻略信息--> 
+<view class="specialty_msg">
+<view class="specialty_info" wx:for="{{index_data_2}}" wx:for-item="p" data-id="{{p.id}}" bindtap="jump">
+<image src="{{imageUrl}}{{p.img}}"></image>
+<view class="specialty_info_name">{{p.name}}</view>
+<view class="specialty_info_position">
+ <image src="/image/person6.png"></image>
+ <view>{{p.address}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>

@@ -1,0 +1,167 @@
+<!--头部-->
+<view class="header">
+<!-- <view class="header_address" bindtap="hideModal"> -->
+<view class="header_address" >
+<view class="address_info" bindtap="click_4">
+<image src="/image/address.png" class="address"></image>
+<view>{{city_1}}</view>
+<image src="/image/18.png" class="right"></image>
+</view>
+</view>
+<!--搜索栏-->
+<form bindsubmit="form">
+  <view class="aa">
+    <button formType="submit" class="button">搜索</button>
+    <input  name="text" placeholder="搜索你想要的内容....." bindtap="show" class="input" value="{{getName}}"/>
+  </view>  
+</form>
+</view>
+<!--头部结束-->
+
+<!--轮播-->
+ <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="gray"indicator-active-color="white" >
+     <block wx:for="{{index_data.lunbo}}" wx:key="item" wx:for-item="p" class="block">
+      <swiper-item>
+        <image src="{{p.advertising_img}}" class="image" data-id="{{p.goods_id}}" bindtap="jump"></image>
+        </swiper-item>
+    </block>
+  </swiper>
+
+<!--攻略-->
+<view class="create_info" bindtap="showModal">
+<image src="/image/37.png"></image>
+<view>创建寺庙景点</view>
+</view>
+
+<!--烧香拜佛-->
+<view class="all">
+
+<view class="spice">
+<view class="spice_total" bindtap="spice"> 
+<view class="spice_info">
+<view class="name">请香</view>
+<image src="/image/45.png" class="img"></image>
+</view>
+</view>
+<view class="spice_total_1" bindtap="bless">
+<view class="spice_info">
+<view class="name">祈福</view>
+<image src="/image/44.png" class="img"></image>
+</view>
+</view>
+</view>
+
+<!--优特寺庙-->
+
+<view class="temple">
+<view class="temple_top">
+<view class="top_1">
+<image src="/image/person2.png"></image>
+<view>寺庙</view>
+</view>
+<view class="top_2" bindtap="click_2">
+<image src="/image/61.png"></image>
+<view>筛选</view>
+</view>
+</view>
+
+<view class="temple_all">
+<view class="temple_image">
+<view class="temple_image_info" wx:for="{{index_data.list}}" data-id="{{item.id}}" bindtap="jump">
+<view class="src"><image src="{{imageUrl}}{{item.img}}"></image></view>
+<view class="temple_name">{{item.pname}}</view>
+<view class="address_1">
+<image src="/image/person6.png"></image>
+<view>{{item.address}}</view>
+</view>
+</view>
+</view>
+</view>
+
+</view>
+
+
+<!--创建景点的信息--> 
+<view wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal" ></view>
+<view class="mark_info">
+<form bindsubmit="formSubmit" >
+<view class="mark_info_name">
+<view>寺庙名称</view>
+<input placeholder="" name='name'></input>
+</view>
+
+<view class="mark_info_address" bindtap="click_5">
+<view>寺庙详细地址</view>
+<view>{{address_1}}</view>
+<image src="/image/person6.png"></image>
+</view>
+
+<view class="picture">寺庙主图</view>
+<view class="photo">
+<view class="photo_info" bindtap="addimage_1" ><image src="/image/31.png" wx:if="{{index_data_1 == ''}}"></image><image src="{{imageUrl}}{{index_data_1}}" wx:if="{{index_data_1 != ''}}"></image></view>
+
+</view>
+
+<view class="introduction">寺庙介绍图</view>
+<view class="introduction_info">
+<textarea placeholder="文字介绍..." name='text'></textarea>
+
+<view class="all_1">
+
+<view class="introduction_info_image" wx:if="{{imgArr}}"  wx:for="{{imgArr}}"><icon type="clear" class="inco" size="23" catchtap="clearImg" data-index="{{index}}"/><image src="{{imageUrl}}{{item}}"></image></view>
+<view class="introduction_info_image" bindtap="addimage" wx:if="{{imgArr.length < 9}}"><image src="/image/66.png"></image></view>
+</view>
+
+
+</view>
+
+<view>
+<button class="click" form-type="submit">点击创建</button>
+</view>
+</form>
+</view>
+
+</view>
+
+
+</view>
+
+<!--搜索的商品-->
+<view class="footer" wx:if="{{hide_2}}">
+<view class="mark_1" bindtap="hideModal"></view>
+<view class="footer_info">
+<!--寺庙信息--> 
+<view class="temple_image">
+<view class="temple_image_info" wx:for="{{index_data_2.list}}" data-id="{{item.id}}" bindtap="jump">
+<view class="src"><image src="{{imageUrl}}{{item.img}}"></image></view>
+<view class="temple_name">{{item.pname}}</view>
+<view class="address_1">
+<image src="/image/person6.png"></image>
+<view>{{item.address}}</view>
+</view>
+</view>
+</view>
+
+</view>
+</view>
+
+
+<!--筛选的信息-->
+<view wx:if="{{hide_1}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="filter">
+<view class="popularity {{type_1 == 1 ? 'text':'' }}" data-index="1" bindtap="click">人气</view>
+<view class="near {{type_1 == 2 ? 'text':'' }}" data-index="2" bindtap="click">离我最近</view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+

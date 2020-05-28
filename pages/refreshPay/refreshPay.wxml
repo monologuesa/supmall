@@ -1,0 +1,38 @@
+<view class="header"></view>
+
+
+<view class="top">
+<view class="top_info">
+
+<view class="top_info_image">
+<view class="img"><image src="/image/33.png"></image></view>
+<view class="name">
+<view class="name_name">支付成功</view>
+<view class="name_wxchat">{{index_data.paystyle}}</view>
+</view>
+</view>
+<view class="money">
+<view class="money_info">￥<text>{{index_data.money}}</text></view>
+
+</view>
+
+</view>
+</view>
+
+
+<view class="botton" bindtap="manage" wx:if="{{sertial == 1 }}">返回商家管理</view>
+<view class="botton" bindtap="manage" wx:if="{{sertial == 2 }}">返回商家管理</view>
+<view class="botton" bindtap="manage" wx:if="{{sertial == 3 }}">返回商家管理</view>
+<view class="botton" bindtap="manage_1" wx:if="{{sertial == 4 }}">查看请香记录</view>
+<view class="botton" bindtap="manage_2" wx:if="{{sertial == 5 }}">查看祈福记录</view>
+<view class="botton" bindtap="manage" wx:if="{{sertial == 6 }}">返回商家管理</view>
+
+<view class="botton1" bindtap="contion" wx:if="{{sertial == 1 }}">继续购买</view>
+<view class="botton1" bindtap="contion"  wx:if="{{sertial == 2 }}">继续购买</view>
+<view class="botton1" bindtap="contion" wx:if="{{sertial == 3 }}">继续购买</view>
+<view class="botton1" bindtap="contion" wx:if="{{sertial == 4 }}">继续请香</view>
+<view class="botton1" bindtap="contion" wx:if="{{sertial == 5 }}">继续祈福</view>
+<view class="botton1" bindtap="contion" wx:if="{{sertial == 6 }}">继续购买</view>
+
+
+

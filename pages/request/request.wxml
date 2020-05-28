@@ -1,0 +1,31 @@
+<view class="header"></view>
+
+<view class="top">
+<view class="top_info {{type == 0 ? 'active': ''}}" bindtap="click" data-index="0">请香记录</view>
+<view class="top_name {{type == 1 ? 'active': ''}}" bindtap="click" data-index="1">祈福记录</view>
+</view>
+
+<view class="img" wx:for="{{index_data}}" data-batchcode="{{item.batchcode}}" wx:if="{{type == 0}}" bindtap="jump" data-id="{{item.id}}" bindlongtap="longPress">
+<view class="image"><image src="{{imageUrl}}{{item.img}}"></image></view>
+<view class="img_info">
+<view class="img_name">{{item.pname}}</view>
+<view class="img_day">{{item.paytime}}</view>
+</view>
+</view>
+
+
+<view class="img" wx:for="{{index_data}}" data-batchcode="{{item.batchcode}}" wx:if="{{type == 1}}"
+bindtap="jump_1" data-id="{{item.id}}" bindlongtap="longPress">
+<view class="image"><image src="{{imageUrl}}{{item.img}}"></image></view>
+<view class="img_info">
+<view class="img_name">{{item.pname}}</view>
+<view class="img_day">{{item.paytime}}</view>
+</view>
+</view>
+
+
+
+
+
+
+

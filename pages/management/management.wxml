@@ -1,0 +1,128 @@
+<!--顶部-->
+<view class="top">
+<view class="top_first" data-index="0" bindtap="jump">
+<view>{{index_data.issue_no}}</view>
+<text>可发布的产品</text>
+</view>
+
+<view class="top_first" data-index="1" bindtap="jump">
+<view>{{index_data.issue_yes}}</view>
+<text>已发布的产品</text>
+</view>
+
+<view class="top_first" data-index="2" bindtap="jump">
+<view>{{index_data.repertory}}</view>
+<text>库存产品(件)</text>
+</view>
+
+</view>
+
+<!--中间-->
+
+<view class="inter">
+<view class="inter_1" bindtap="getOrder">
+<view>{{index_data.order_num}}</view>
+<text>订单数</text>
+</view>
+
+<view class="inter_1">
+<view>{{index_data.browse_num}}</view>
+<text>浏览数</text>
+</view>
+
+<view class="inter_1">
+<view>{{index_data.a_price}}</view>
+<text>销售额(元)</text>
+</view>
+
+</view>
+
+<view class="gary"></view>
+
+
+<!--底部-->
+
+<view class="footer">
+
+<view class="footer_info" bindtap="refund" wx:if="{{index_data.is_cash_money == 1}}">
+<view class="image">
+<image src="/image/person1.png" style="height: 40rpx;width: 37rpx;margin-left: 44rpx;"></image>
+<view>保证金退款</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="guarantee">
+<view class="image">
+<image src="/image/23.png"></image>
+<view>保证金缴纳</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="myOrder">
+<view class="image">
+<image src="/image/24.png"></image>
+<view>订单管理</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="phone">
+<view class="image">
+<image src="/image/26.png"></image>
+<view>专属电话</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="footer_info" bindtap="comment">
+<view class="image">
+<image src="/image/25.png"></image>
+<view>评论管理</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="ad">
+<view class="image">
+<image src="/image/27.png"></image>
+<view>广告位</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="rank">
+<view class="image">
+<image src="/image/28.png"></image>
+<view>店铺排行</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="shop">
+<view class="image">
+<image src="/image/69.png"></image>
+<view>商品排行</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<view class="footer_info" bindtap="updata">
+<view class="image">
+<image src="/image/28.png"></image>
+<view>资料更新</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+</view>
+
+
+
+
+
+
+
+

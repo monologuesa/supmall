@@ -1,0 +1,105 @@
+ <import src="../../wxParse/wxParse.wxml"/>  
+
+
+<view class="header"></view>
+
+<!--具体信息-->
+<form bindsubmit="formSubmit">
+<view class="top">
+<view class="top_info">
+<view>姓名</view>
+<input placeholder="申请人姓名" name='name' value="{{all.name}}"></input>
+</view>
+
+<view class="top_info">
+<view>电话</view>
+<input placeholder="申请人电话号" name='phone' value="{{all.phone}}"></input>
+</view>
+<view class="top_info">
+<view>{{all.name1}}</view>
+<input placeholder="{{all.name2}}" name='stort_name' value="{{all.shopName}}"></input>
+</view>
+<view class="top_info">
+<view>详细地址</view>
+<input placeholder="具体到省 市 县" name='address' value="{{all.address}}"></input>
+</view>
+<view class="top_info">
+<view>登录密码</view>
+<input type="password" placeholder="申请人设置密码" name='paw' value="{{}}"></input>
+</view>
+<!-- <view class="top_info">
+<view>银行卡</view>
+<input placeholder="申请人银行卡号" name='card'value="{{all.card_num}}"></input>
+</view>
+
+<view class="top_info">
+<view>银行卡名称</view>
+<input placeholder="申请人银行名称" name='card_name' value="{{all.card_name}}"></input>
+</view> -->
+
+<view class="top_name">
+<view class="shop">{{all.name3}}</view>
+<view class="image1">
+<view class="img" wx:if="{{all.imgurl != '' && type == 1}}"><image wx:if="{{all.imgurl}}" src="{{urlImage}}{{all.imgurl}}"></image></view>
+<view class="img" bindtap="addimage" wx:if="{{all.imgurl == '' || type == 2}}"><image src="/image/31.png" wx:if="{{index_data == ''}}"></image><image src="{{urlImage}}{{index_data}}" wx:if="{{index_data != '' }}"></image></view>
+</view>
+</view>
+
+<view class="top_name">
+<view class="shop">上传身份证</view>
+<view class="image1">
+<view class="img" wx:if="{{all.id_in != ''&& type == 1}}"><image wx:if="{{all.id_in}}" src="{{urlImage}}{{all.id_in}}"></image></view>
+<view class="img" bindtap="addimage1" wx:if="{{all.id_in == '' || type == 2}}"><image src="/image/31.png" wx:if="{{index_data_1 == ''}}"></image><image src="{{urlImage}}{{index_data_1}}" wx:if="{{index_data_1 != ''}}"></image></view>
+</view>
+</view>
+
+<view class="top_name">
+<view class="shop">{{all.name4}}</view>
+<view class="image1">
+<view class="img" wx:if="{{all.food_licence != ''&& type == 1}}"><image wx:if="{{all.food_licence}}" src="{{urlImage}}{{all.food_licence}}"></image></view>
+<view class="img" bindtap="addimage2" wx:if="{{all.food_licence == '' || type == 2}}"><image src="/image/31.png" wx:if="{{index_data_2 == ''}}"></image><image src="{{urlImage}}{{index_data_2}}" wx:if="{{index_data_2 != ''}}"></image></view>
+</view>
+</view>
+
+</view>
+
+
+<!--提交申请-->
+
+<view>
+<button class="botton" form-type="submit">提交申请</button>
+</view>
+
+<view bindtap="showModal">
+<view class="out" bindtap="out">
+<view>入驻须知</view>
+<image src="/image/53.png"></image>
+</view>
+</view>
+
+</form>
+
+<view wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="footer">
+<view class="footer_info">
+<view class="name_info">入驻须知</view>
+<view class="footer_name">
+  <view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+</view>
+
+
+
+</view>
+
+
+</view>
+
+
+
+
+
+

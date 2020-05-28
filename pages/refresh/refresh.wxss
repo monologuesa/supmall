@@ -1,0 +1,82 @@
+.refresh{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150rpx;
+}
+.refresh view{
+  margin-left: 25rpx;
+  font-size: 32rpx;
+  color:rgba(102,102,102,1);
+}
+.money{
+  display: flex;
+  margin-right: 25rpx;
+}
+.money view{
+  color:rgba(255,0,0,1);
+  font-size: 35rpx;
+}
+.prompt{
+  background-color:	#F5F5F5;
+  padding-bottom: 30rpx;
+}
+.wxParse{
+  margin-left: 30rpx;
+  padding-top: 30rpx;
+  color:rgba(102,102,102,1);
+}
+.class{
+    color:rgba(102,102,102,1);
+    font-size: 32rpx;
+    margin: 30rpx 0 0rpx 0rpx;
+    padding-left: 40rpx;
+    border-bottom: 4rpx solid	#F5F5F5;
+    height: 70rpx;
+}
+.pay_image image{
+  height: 40rpx;
+  width: 55rpx;
+}
+.img{
+  margin-right: 30rpx;
+}
+.img image{
+  height: 50rpx;
+  width: 50rpx;
+}
+.pay_info{
+  height: 100rpx;
+  border-bottom: 4rpx solid	#F5F5F5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pay_image{
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+}
+.pay_image view{
+  font-size: 32rpx;
+  margin-left: 10rpx;
+  color:rgba(153,153,153,1);
+}
+.button{
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 100rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+  border-radius: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 35rpx;
+  color:rgba(255,255,255,1);
+}
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+   margin-right: 30rpx;
+}

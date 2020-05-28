@@ -1,0 +1,136 @@
+ <import src="../../wxParse/wxParse.wxml"/>  
+
+<view class="bg">
+<view class="top">
+<view class="top_image"><image src="{{index_data.weixin_headimgurl}}"></image></view>
+<view class="top_info">
+<view class="top_name">
+<view class="name_t">{{index_data.name}}</view>
+<view class="name1">{{index_data.weixin_name}}</view>
+<view class="name" bindtap="getaddress">
+<image src="/image/2.png"></image>
+<view>{{index_data.get_address}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+
+<!--轮播图-->
+ <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="gray"indicator-active-color="white" class="block">
+     <block wx:for="{{index_data.img}}" wx:key="item" wx:for-item="p">
+      <swiper-item>
+        <image src="{{imageUrl}}{{p.img}}" class="image" data-index="{{index}}" data-list="{{index_data.img}}" bindtap="imgYu_1"></image>
+        </swiper-item>
+    </block>
+  </swiper>
+
+<!--文字介绍-->
+<view class="text">
+<view class="text_info">
+  <view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+<view class="text_image_info">
+<button open-type='share' class="share">分享</button>
+<view class="temple" bindtap="appear" wx:if="{{sort == 2}}">寺庙二维码</view>
+<view class="text_image" bindtap="like">
+<view>({{index_data.get_like_num}})</view>
+<view wx:if="{{index_data.like_num == 0 }}">点赞</view>
+<view class="{{index_data.like_num == 1 ? 'active' : ''}}"  wx:if="{{index_data.like_num == 1}}">已赞</view>
+<image src="/image/62.png" wx:if="{{index_data.like_num == 0 }}"></image>
+<image src="/image/63.png" wx:if="{{index_data.like_num == 1 }}"></image>
+</view>
+</view>
+</view>
+
+
+<!--评论-->
+<view class="number">
+<view class="number_info">
+<view class="number_all">
+<view>共<text>{{index_data.e_num}}</text>条评论</view>
+</view>
+<view class="collect" bindtap="collect" wx:if="{{collect == 0}}">收藏</view>
+<view class="collect tet" bindtap="cancel" wx:if="{{collect == 1}}">已收藏</view>
+</view>
+
+<form bindsubmit="formSubmit_1" >
+<view class="number_image">
+<input placeholder="说点什么...." name = "name"value="{{name_2}}"></input>
+<button form-type="submit" class="number_name">发送</button>
+</view>
+</form>
+
+<!--一级评论-->
+<view class="info" wx:for="{{index_data.e_content}}" wx:for-item="p">
+<view class="info_image">
+<view class="image2"><image src="{{p.e_weixin_headimgurl}}"></image></view>
+<view class="info_name">{{p.e_weixin_name}}</view>
+<!-- <view class="info_name1">作者</view> -->
+</view>
+
+<view class="news">
+<view class="news_name">{{p.discuss}}</view>
+<view class="news_info">
+<view class="news_day">{{p.createtime}}</view>
+</view>
+</view>
+
+<!--二级评论-->
+<form bindsubmit="formSubmit_2" data-eid="{{p.get_e_id}}" data-level="{{p.write_back_level}}" data-uid="{{p.b_user_id}}">
+<view class="reply">
+<input placeholder="{{name}}" name = "name" value="{{name_1}}" wx:if="{{pid == p.get_e_id}}"></input>
+<input placeholder="说点什么" name = "name" value="{{name_1}}" wx:if="{{pid != p.get_e_id}}"></input>
+<button form-type="submit" class="number_name">回复</button>
+</view>
+
+
+
+<view class="img" wx:for="{{p.reply_user}}" wx:for-item="item_1"  bindtap="click" data-name="{{item_1.b_weixin_name}}" data-id="{{item_1.get_e_id}}" data-level="{{item_1.write_back_level}}"
+data-bid="{{item_1.b_user_id}}">
+
+<view class="img_info">
+<view class="image3"><image src="{{item_1.b_weixin_headimgurl}}"></image></view>
+<view>{{item_1.b_weixin_name}}</view>
+</view>
+<!--b_weixin_name 是二级回复者 p_weixin_name是三级回复-->
+<view class="img_name" >
+<view wx:if="{{item_1.p_weixin_name == ''}}">{{item_1.b_discuss}}</view>
+<text wx:if="{{item_1.p_weixin_name == ''}}">{{item_1.b_createtime}}</text>
+<view wx:if="{{item_1.p_weixin_name != ''}}">回复@{{item_1.p_weixin_name}}:{{item_1.b_discuss}}</view>
+<text wx:if="{{item_1.p_weixin_name != ''}}">{{item_1.b_createtime}}</text>
+</view>
+
+
+</view>
+
+</form>
+
+
+
+</view>
+</view>
+
+
+ <view class="footer" wx:if="{{shouquan == 1}}">
+<view class="hide" ></view>
+<view class="footer_info">
+  <view>用户信息授权!</view>
+  <button class='getuserinfo'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" style='border-radius=0;border:0;'>确定</button>
+  <button class='noGetuserinfo'  bindtap='noGetuserinfo' style='border-radius=0;border:0;'>取消</button>
+</view>
+</view>
+
+<view class="images" wx:if="{{hide_2}}">
+<view class="mark" bindtap="cancle"></view>
+<view class="images_info">
+<image src="{{index_data_1.url_path}}" data-list="{{index_data_1.url_path}}" bindtap="imgYu"></image>
+<view class="images_name" bindtap="getImage_1">保存照片</view>
+</view>
+</view>
+

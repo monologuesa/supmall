@@ -1,0 +1,36 @@
+
+<view class="all" wx:if="{{index_data != ''}}">
+<view class="header"></view>
+
+<!--商品的详细信息-->
+<view class="info" bindtap="info" wx:for="{{index_data}}" wx:for-item="p" data-id="{{p.id}}" data-type="{{p.collect_type}}">
+ <view class="info_image"> <image src="{{imageUrl}}{{p.default_imgurl}}"></image></view>    
+<view class="info_name">
+<view class="name">{{p.name}}</view>
+<view class="info_number" wx:if="{{p.storenum != null}}">
+<view class="number">库存<text>{{p.storenum}}</text></view>
+<view class="info_nomber_money">
+<view class="money1" wx:if="{{p.now_price != ''}}">￥{{p.now_price}}</view>
+<view class="money2" wx:if="{{p.orgin_price != ''}}">{{p.orgin_price}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+<view class="footer" wx:if="{{index_data == ''}}">
+<view class="footer_info">
+<image src="/image/75.png"></image>
+<view class="footer_name" bindtap="go">去逛逛吧</view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+

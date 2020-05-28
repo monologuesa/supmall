@@ -1,0 +1,69 @@
+<view class="header"></view>
+
+<view class="top" >
+<view class="top_info">
+<image src="/image/33.png"></image>
+<view class="top_info_name">
+<view>{{index_data.order_statues}}</view>
+</view>
+</view>
+</view>
+
+
+<!--退款信息-->
+<view class="in">退款信息</view>
+
+<view class="shop">
+<view class="shop_info" wx:for="{{index_data.p_arr}}" data-id="{{item.product_id}}" bindtap="jump">
+ <view class="img"><image src="{{imageUrl}}{{item.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item.prvstr}}</view>
+<view class="num">x<text>{{item.rcount}}</text></view>
+</view>
+</view>
+</view>
+</view>
+
+
+<!--订单信息-->
+<view class="infor">
+<view class="infor_name">订单信息</view>
+<view class="infor_pay">
+<view>订单编号：</view>
+<text selectable='true'>{{index_data.batchcode}}</text>
+</view>
+<view class="infor_pay" wx:if="{{index_data.expressnum != null}}">
+<view>快递单号：</view>
+<text selectable='true'>{{index_data.expressnum}}</text>
+</view>
+<view class="infor_pay">
+<view>创建时间：</view>
+<text>{{index_data.createtime}}</text>
+</view>
+<view class="infor_pay">
+<view>付款时间：</view>
+<text>{{index_data.paytime}}</text>
+</view>
+<view class="infor_pay" wx:if="{{index_data.confirm_sendtime == ''}}">
+<view>发货时间：</view>
+<text>{{index_data.confirm_sendtime}}</text>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

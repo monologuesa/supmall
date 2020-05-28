@@ -1,0 +1,145 @@
+.header{
+  height: 80rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+}
+.top{
+  border-bottom: 5rpx solid #f5f5f5;
+  padding-bottom: 30rpx;
+  
+}
+.top_info{
+  height: 250rpx;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 30rpx;
+  background-color: #f5f5f5;
+  position: relative;
+}
+.img{
+  border-radius: 20rpx;
+  height: 170rpx;
+  width: 200rpx;
+  padding: 42rpx 20rpx 0 14rpx;
+}
+.img image{
+  border-radius: 20rpx;
+  height: 100%;
+  width: 100%;
+}
+.top_name{
+  position: absolute;
+  top: 47rpx;
+  left: 230rpx;
+  width: 66%;
+}
+.top_num{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.num{
+  display: flex;
+  align-items: center;
+}
+.name{
+  font-size: 32rpx;
+  margin-bottom: 64rpx;
+  overflow-x:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.name_1{
+  font-size: 30rpx;
+}
+.less{
+  font-size: 30rpx;
+  margin-top: 5rpx;
+  margin-right: 5rpx;
+}
+.number{
+  font-size: 30rpx;
+  margin-right: 30rpx;
+}
+.in_name{
+  color:rgba(153,153,153,1);
+  font-size: 33rpx;
+  margin-left: 30rpx;
+}
+.in_image{
+  margin-top: 8rpx;
+  margin-left: 30rpx;
+}
+.in_image_1{
+    margin-top: 8rpx;
+  margin-left: 30rpx;
+}
+.image{
+  
+  height: 45rpx;
+  width: 45rpx;
+}
+.in_info{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  margin-top: 30rpx;
+}
+.in{
+  padding-bottom: 30rpx;
+  border-bottom: 20rpx solid #f5f5f5;
+}
+textarea{
+  width: 100%;
+  margin-top: 30rpx;
+  height: 250rpx;
+}
+.footer_image{
+  height: 180rpx;
+  width: 200rpx;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+.footer_image_1{
+  height: 180rpx;
+  width: 200rpx;
+}
+.footer_image_1 image{
+  height: 100%;
+  width: 100%;
+} 
+.footer_image image{
+  height: 100%;
+  width: 100%;
+  border-radius: 14rpx;
+}
+.footer_info{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.button1{
+  width: 70%;
+  height: 80rpx;
+  margin-left: 15%;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+  color: #ffffff;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
+}
+/* pages/test/test.wxss */
+image{
+  height: 45rpx;
+  width: 45rpx;
+  display: inline-block
+}
+.inco{
+z-index: 100;
+float: right;
+margin-top: -50rpx;
+position: relative;
+top: 25rpx;
+left: 10rpx;
+}

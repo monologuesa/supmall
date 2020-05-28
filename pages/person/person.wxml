@@ -1,0 +1,128 @@
+<view>
+  <view class="person-top">
+    <view class='center_nav'>
+      <view class='center_nav_img'>
+      <image  class="info-img" wx:if="{{user_id}}" src="{{index_data.weixin_headimgurl}}"></image>
+       <image  class="info-img" wx:if="{{!user_id}}" src="/image/foot4.png"></image>
+        <view class='user_info' wx:if="{{user_id}}">
+          <view class='center_nav_t'>{{index_data.weixin_name}}</view>
+          <view class='phone' bindtap="collect"><text>收藏夹:</text>{{index_data.collect_num}}</view>
+        </view>
+          <view class='user_d' wx:if="{{!user_id}}">
+            <button class='loginBtn'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">点我登录</button>
+            <!-- <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击授权</button> -->
+          </view>
+        <view class="sign" bindtap="sign">
+          <image src="/image/sign.png"></image>
+          <text>签到</text>
+        </view>
+      </view>
+    </view>
+  <view class="money_1">
+  <view class="money_info">
+  <view>零钱:<text>{{index_data.balance}}</text></view>
+  </view>
+  <view class="line"></view>
+  <view class="money_name">
+  <view>积分:<text>{{index_data.integral}}</text></view>
+  </view>
+  </view>
+  </view>
+ 
+ <!--全部订单-->
+<view class="all">
+<view class="all_info" bindtap="goMyorder" data-type="1">
+<view>全部订单</view>
+<image src="/image/right.png"></image>
+</view>
+<view class="all_name">
+<view class="all_name_1" bindtap="goMyorder" data-type="2">
+<image src="/image/per-nav1.png"><text class="round" wx:if="{{index_data.order_num.dfk_num != 0 && index_data.order_num.dfk_num < 100 }}">{{index_data.order_num.dfk_num}}</text><text class="round" wx:if="{{index_data.order_num.dfk_num != 0 && index_data.order_num.dfk_num >= 100 }}">99+</text></image>
+<view>待付款</view>
+</view>
+<view class="all_name_1" bindtap="goMyorder" data-type="3">
+<image src="/image/per-nav2.png"><text class="round" wx:if="{{index_data.order_num.dfh_num != 0 && index_data.order_num.dfh_num < 100 }}">{{index_data.order_num.dfh_num}}</text><text class="round" wx:if="{{index_data.order_num.dfh_num != 0 && index_data.order_num.dfh_num >= 100}}">99+</text></image>
+<view>待发货</view>
+</view>
+<view class="all_name_1" bindtap="goMyorder" data-type="4">
+<image src="/image/per-nav3.png"><text class="round" wx:if="{{index_data.order_num.dsh_num != 0 && index_data.order_num.dsh_num < 100 }}">{{index_data.order_num.dsh_num}}</text><text class="round" wx:if="{{index_data.order_num.dsh_num != 0 && index_data.order_num.dsh_num >= 100 }}">99+</text></image>
+<view>待收货</view>
+</view>
+<!-- <view class="all_name_1" bindtap="goMyorder" data-type="9">
+<image src="/image/per-nav4.png"><text class="round" wx:if="{{index_data.order_num.ywc_num != 0 && index_data.order_num.ywc_num < 100}}">{{index_data.order_num.ywc_num}}</text><text class="round" wx:if="{{index_data.order_num.ywc_num != 0 && index_data.order_num.ywc_num >= 100 }}">99+</text></image>
+<view>已完成</view>
+</view> -->
+<!-- <view class="all_name_1" bindtap="goMyorder" data-type="9">
+<image src="/image/per-nav4.png"></image>
+<view>已完成</view>
+</view> -->
+<view class="all_name_1" bindtap="goMyorder" data-type="5">
+<image src="/image/per-nav5.png"><text class="round" wx:if="{{index_data.order_num.dpj_num != 0 && index_data.order_num.dpj_num < 100}}">{{index_data.order_num.dpj_num}}</text><text class="round" wx:if="{{index_data.order_num.dpj_num != 0 && index_data.order_num.dpj_num >= 100 }}">99+</text></image>
+<view>待评价</view>
+</view>
+<view class="all_name_1" bindtap="goMyorder" data-type="7">
+<image src="/image/per-nav6.png"><text class="round" wx:if="{{index_data.order_num.shz_num != 0 && index_data.order_num.shz_num < 100}}">{{index_data.order_num.shz_num}}</text><text class="round" wx:if="{{index_data.order_num.shz_num != 0 && index_data.order_num.shz_num >= 100 }}">99+</text></image>
+<view>售后</view>
+</view>
+
+</view>
+</view>
+
+<!--列表-->
+  <view>
+    <view class='center_type' bindtap="purse">
+      <image class='center_type_img1' src='/image/person1.png' ></image>
+      我的钱包
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+    <view class='center_type' bindtap="request">
+      <image class='center_type_img1' src='/image/person2.png'></image>
+      请香祈福
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+  <view class='center_type' bindtap="in" wx:if="{{index_data.role == 0 && index_data_1.is_goods_open == 1}}">
+      <image class='center_type_img1' src='/image/person3.png'></image>
+      {{inName}}
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+    <!-- <view class='center_type' bindtap="management" wx:if="{{index_data.role == 1 && index_data_1.is_goods_open == 1}}"> -->
+        <view class='center_type' bindtap="management" >
+      <image class='center_type_img1' src='/image/person4.png'></image>
+      商家管理
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+    <view class='center_type' bindtap="notice">
+      <image class='center_type_img1' src='/image/person5.png'></image>
+      消息管理
+      <image class='center_type_img2' src='/image/right.png'></image>
+      <view class="center_type_1" wx:if="{{index_data.msg_num == 1}}"><view>1</view></view>
+    </view>
+    <view class='center_type' bindtap="collect">
+      <image class='center_type_img1' src='/image/59.png'></image>
+      收藏夹
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+    <view class='center_type' bindtap="address">
+      <image class='center_type_img1' src='/image/person6.png'></image>
+      地址管理
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+    <view class='center_type' bindtap="service">
+      <image class='center_type_img1' src='/image/person7.png'></image>
+      客服
+      <image class='center_type_img2' src='/image/right.png'></image>
+    </view>
+  </view>
+</view>
+
+
+ <view class="footer" wx:if="{{shouquan == 1}}">
+<view class="hide" ></view>
+<view class="footer_info">
+  <view>用户信息授权!</view>
+  <button class='getuserinfo'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" style='border-radius=0;border:0;'>确定</button>
+  <button class='noGetuserinfo'  bindtap='noGetuserinfo' style='border-radius=0;border:0;'>取消</button>
+</view>
+</view>
+
+

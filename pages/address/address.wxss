@@ -1,0 +1,155 @@
+.header{
+  height: 80rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+}
+.null{
+  height: 100%;
+  width: 100%;
+  color: rgba(153,153,153,1);
+  position: absolute;
+  top: 40%;
+  left: 0;
+  text-align: center;
+  right: 0;
+  margin: 0 auto;
+}
+.null_info{
+  margin: 0 auto;
+  /* margin-left: 10rpx; */
+  margin-top: 30rpx;
+  width: 180rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx ;
+  text-align: center;
+  font-size: 30rpx;
+  border: 5rpx solid #dcdcdc;
+}
+.info_top{
+  padding-left: 30rpx;
+  height: 130rpx;
+  border-bottom: 5rpx solid #f5f5f5;
+  /* margin-top: 20rpx; */
+}
+.info_photo{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.info_photo view{
+  font-size: 30rpx;
+  color:rgba(51,51,51,1);
+  margin-right: 20rpx;
+}
+.info_photo text{
+  font-size: 30rpx;
+  color:rgba(51,51,51,1);
+}
+.address{
+  font-size: 30rpx;
+  color:rgba(51,51,51,1);
+}
+.info_footer_1{
+  display: flex;
+  font-size: 30rpx;
+  align-items: center;
+}
+.active{
+  color: #29C0D9 !important;
+}
+.aaa{
+  color: rgba(153,153,153,1);
+  margin-top: 8rpx;
+}
+.info_footer_2{
+  display: flex;
+  font-size: 32rpx;
+  align-items: center;
+  margin-right: 35rpx;
+}
+.info_footer_3{
+  display: flex;
+  font-size: 32rpx;
+  align-items: center;
+  margin-right: 30rpx;
+}
+.info_footer_1 image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+.info_footer_2 image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 15rpx;
+}
+.info_footer_3 image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 15rpx;
+}
+.info_footer{
+  height: 100rpx;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 5rpx solid #f5f5f5;
+}
+.info_footer_info{
+  display: flex;
+  align-items: center;
+}
+.button_info image{
+  margin-right: 15rpx;
+  height: 30rpx;
+  width: 30rpx;
+}
+.button{
+  width: 100%;
+  height: 80rpx;
+  /* margin-left: 15%; */
+  line-height: 80rpx;
+  /* border-radius: 50rpx; */
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+  text-align: center;
+  font-size: 35rpx;
+  color:rgba(255,255,255,1);
+  /* margin-top: 80rpx; */
+  /* margin-bottom: 80rpx; */
+  position: fixed;
+  bottom: 0;
+}
+.button_info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info{
+  margin: 30rpx auto;
+}
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 35rpx; /* 背景的宽 */
+   height: 35rpx; /* 背景的高 */
+   margin-left: 30rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

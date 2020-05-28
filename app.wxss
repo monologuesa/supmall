@@ -1,0 +1,10 @@
+/**app.wxss**/
+@font-face{
+  font-family: 'PingFang-SC-Medium';
+  font-style: normal;
+  font-weight: 400; 
+  /* src: url(/font/pingfangscmedium.otf);  */
+}
+view{
+  font-family: 'PingFang-SC-Medium';
+}

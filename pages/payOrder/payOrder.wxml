@@ -1,0 +1,122 @@
+<!--头部-->
+<view class="header"></view>
+
+<!--地址信息-->
+<view class="address" bindtap="address" wx:if="{{ aid != ''}}">
+<view class="address_info" >
+<view class="address_name">
+<image src="/image/person6.png" class="person6"></image>
+<view class="name">
+<view class="name1">
+<view>{{index_data.addr_info.name}}</view>
+<text>{{index_data.addr_info.phone}}</text>
+</view>
+<view class="info">
+<view>{{index_data.addr_info.location_p}}{{index_data.addr_info.location_c}}{{index_data.addr_info.location_a}}{{index_data.addr_info.address}}</view>
+</view>
+</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+</view>
+<view class="address_1" wx:if="{{ aid == ''}}" bindtap="address_1">你还未添加地址，请添加地址</view>
+
+<!--商品信息-->
+<view class="shop">
+<view class="shop_info" wx:for="{{index_data.pro_info}}">
+ <view class="img"><image src="{{imageUrl}}{{item.pro_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name_1">{{item.pro_name}}</view>
+<view class="shop_num">
+<view class="day">{{item.pro_proname}}</view>
+<view class="num">
+<view class="less">*</view>
+<view class="number">{{item.pro_rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+
+
+<!--商品价格-->
+<view class="money">
+<view class="money_info">
+<view class="money_1">商品价格</view>
+<view class="money_name">
+<view class="total">
+<view>共</view>
+<text>{{index_data.final_info.all_rcount}}</text>
+<view>件</view>
+<view class="all">合计:</view>
+</view>
+<view class="total_money">
+<view wx:if="{{index_data.final_info.pro_all_price != 0}}">￥<text>{{index_data.final_info.pro_all_price}}</text></view>
+<view wx:if="{{index_data.final_info.pro_all_price != 0 && index_data.final_info.all_integral != 0}}">+</view>
+<view wx:if="{{index_data.final_info.all_integral != 0}}"><text>{{index_data.final_info.all_integral}}积分</text></view>
+</view>
+</view>
+</view>
+</view>
+
+<!--运费-->
+<view class="fare">
+<view>运费</view>
+<view>+<text>{{index_data.final_info.all_express}}</text></view>
+</view>
+
+<!--支付方式-->
+
+<view class="pay" wx:if="{{index_data.final_info.pro_all_price != 0}}" >
+<view class="pay_name">
+<view>选择支付方式</view>
+</view>
+
+<view class="pay_info" bindtap="button" data-name="微信支付" wx:if="{{index_data.pay_info.is_weipay == 1}}">
+<view class="wxchat">
+<image src="/image/52.png" class="nav"></image>
+<view>微信支付</view>
+</view>
+<checkbox class="floatright" name="is_default" bindtap="boolts" checked="{{check}}"/>
+</view>
+<view class="pay_info_1" bindtap="button" data-name="零钱支付" wx:if="{{index_data.pay_info.is_payChange == 1}}">
+<view class="wxchat_1">
+<image src="/image/78.png" class="nav_1"></image>
+<view>零钱支付</view>
+</view>
+<checkbox class="floatright" name="is_default" bindtap="boolts" checked="{{check_1}}"/>
+</view>
+</view>
+<view style="height:120rpx"></view>
+
+<!--底部剁手的地方-->
+<view class="footer">
+<view class="money_name_1">
+<view class="total">
+<view>共</view>
+<text>{{index_data.final_info.all_rcount}}</text>
+<view>件</view>
+<view class="all">合计:</view>
+</view>
+<view class="total_money">
+<view wx:if="{{index_data.final_info.pro_all_price != 0}}">￥<text>{{index_data.final_info.zong_all_price}}</text></view>
+<view wx:if="{{index_data.final_info.pro_all_price != 0 && index_data.final_info.all_integral != 0}}">+</view>
+<view wx:if="{{index_data.final_info.all_integral != 0}}"><text>{{index_data.final_info.all_integral}}积分</text></view>
+</view>
+</view>
+
+<view class="way" >
+<view bindtap="buy"  wx:if="{{index_data.final_info.pro_all_price != 0}}">立即支付</view>
+<view bindtap="buy_1" wx:if="{{index_data.final_info.pro_all_price == 0}}">积分支付</view>
+</view>
+</view>
+
+
+
+
+
+
+
+

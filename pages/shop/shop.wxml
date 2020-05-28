@@ -1,0 +1,181 @@
+ <import src="../../wxParse/wxParse.wxml"/>  
+<view class="header">
+<!--轮播图-->
+ <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="gray"indicator-active-color="white"  class="swiper" >
+     <block  class="block" >
+      <swiper-item  wx:for="{{index_data.imgurl}}" wx:key="item">
+        <image src="{{imageurl}}{{item.imgurl}}" class="image" data-index="{{index}}" data-list="{{index_data.imgurl}}" bindtap="imgYu"></image>
+        </swiper-item>
+    </block>
+  </swiper>
+
+
+<!--商品价格信息-->
+
+<view class="info">
+<view class="info_totle">
+<view class="info_money">
+<view class="info1">￥<text wx:if="{{index_data.need_score == 0}}">{{index_data.now_price}}</text><text wx:if="{{index_data.need_score != 0}}">{{index_data.need_score}}积分</text></view>
+<view class="info2">原价：￥{{index_data.orgin_price}}</view>
+</view>
+<view class="info_number">
+<view>销量</view>
+<text>{{index_data.sum_sell_count}}</text>
+</view>
+</view>
+<view class="info_name">
+<view>{{index_data.pname}}</view>
+</view>
+</view>
+
+
+<!--促销-->
+<view class="promotion">
+<view wx:if="{{index_data.get_type == 1}}" class="free">包邮</view>
+<button open-type='share'>分享</button>
+</view>
+
+<!--用户评价-->
+<view class="assess" bindtap="assess" data-id="{{index_data.id}}">
+<view>用户评价<text>({{index_data.get_e_num}})</text> </view>
+<!-- <view class="assess_info"> -->
+<!-- <text class="assess_info_num" wx:if="{{index_data.get_e_num != 0}}">{{index_data.get_e_num}}</text> -->
+<image src="/image/right.png"></image>
+<!-- </view> -->
+</view>
+
+<!--店铺详情-->
+<view class="other" wx:if="{{index_data.is_supply_id != -1 && index_data_1.is_goods_open == 1}}">
+<view class="other_image"><image src="{{imageurl}}{{index_data.shop_img}}"></image></view>
+<view class="other_name">
+<view class="other_name_1">
+<view class="other_left">{{index_data.shopName}}</view>
+<view class="other_right" data-id="{{index_data.supplys_id}}" bindtap="jump">进店逛逛</view>
+</view>
+<view class="other_name_2" bindtap="address_info">
+<image src="/image/person6.png"></image>
+<view class="other_address">{{index_data.shop_address}}</view>
+</view>
+<view class="other_name_3">
+<image src="/image/67.png"></image>
+<view class="other_num">
+<text>销量</text><text>{{index_data.get_sell}}</text>
+</view>
+</view>
+</view>
+</view>
+
+<!--详情-->
+<view class="details">
+<view class="details_name">
+<view class="name1"></view>
+<view class="name2">详情</view>
+<view class="name3"></view>
+</view>
+  <view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+
+
+<!--剁手的地方-->
+<view class="move">
+<view class="buy">
+<!-- <view class="shop">
+<view  data-type="0" bindtap="showModal">加入购物车</view>
+</view>
+<view class="buy_info">
+<view  data-type="1" bindtap="showModal" bindload="imageLoad">立即购买</view>
+</view> -->
+
+<view class="buy_1" bindtap="home">
+<image src="/image/foot1.png"></image>
+<view>首页</view>
+</view>
+
+<view class="buy_2">
+<image src="/image/60.png" bindtap="collect" wx:if="{{collect == 0}}"></image>
+<image src="/image/59.png" bindtap="cancel"  wx:if="{{collect == 1}}"></image>
+<!-- <view class="{{ collect == 1 ? 'all':''}}">收藏</view> -->
+<view class="{{ collect == 1 ? 'all':''}}" bindtap="collect" wx:if="{{collect == 0}}">收藏</view>
+<view class="{{ collect == 1 ? 'all':''}}" bindtap="cancel"  wx:if="{{collect == 1}}">收藏</view>
+</view>
+
+<view class="buy_3">
+<view class="shop">
+<view  data-type="0" bindtap="showModal">加入购物车</view>
+</view>
+<view class="buy_info">
+<view  data-type="1" bindtap="showModal" bindload="imageLoad">立即购买</view>
+</view>
+
+</view>
+</view>
+</view>
+
+<!--隐藏的地方-->
+<view class="hide" wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal" ></view>
+<!-- <view class="hide_info" animation="{{animationData}}"> -->
+<view class="hide_info">
+<view class="hide_top">
+<view class="hide_image" >
+<image  src="{{imageurl}}{{index_data.default_imgurl}}"></image>
+</view>
+
+<view class="hide_money" wx:if="{{index_data_2 == ''}}">
+<view class="price">￥<text>{{index_data.now_price}}</text></view>
+<view class="hide_name">库存<text>{{index_data.storenum}}</text>件</view>
+</view>
+
+<view class="hide_money" wx:if="{{index_data_2 != ''}}">
+<view class="price"><text wx:if="{{index_data_2.need_score == 0 }}"><text class="picon">￥</text>{{index_data_2.now_price}}</text><text wx:if="{{index_data_2.need_score != 0}}">{{index_data_2.need_score}}积分</text></view>
+<view class="hide_name">库存<text>{{index_data_2.storenum}}</text>件</view>
+</view>
+
+</view>
+
+<view class="in">
+<view class="in_info">
+<view class="data" wx:for="{{index_data.pros_all.parent_name}}" wx:for-item="parent_name">
+<view class="in_top">{{parent_name}}</view>
+<radio-group>
+<label class="in_name" wx:for="{{index_data.pros_all.son_name[index]}}" wx:for-index="newsindex">
+<view class="in_name_1 {{arrName[index] == item.name ? 'active' : ''}}" data-index="{{newsindex}}" data-name="{{item.name}}" data-id="{{item.id}}" data-pindex="{{index}}" bindtap="click">{{item.name}}</view>
+</label>
+</radio-group>
+</view>
+</view>
+</view>
+<view class="num">
+<view class="num_info">
+<view class="num_name">数量</view>
+<view class="num_1">
+<view class="less" bindtap="less">-</view>
+<!-- <input class="num_num" type="number" value="{{nums}}" name="nums"></input> -->
+<view class="num_num">{{nums}}</view>
+<view class="add" bindtap="add">+</view>
+</view>
+</view>
+</view>
+<view class="button_all">
+<!--加入购物车-->
+<view class="button" bindtap="button" wx:if="{{btntype == 0 }}">确定</view>
+<!--立即购买-->
+<view class="button" bindtap="button1" wx:if="{{btntype == 1 }}">确定</view>
+</view>
+</view>
+</view>
+
+ <view class="warrant" wx:if="{{shouquan == 1}}">
+<view class="hide_1" ></view>
+<view class="warrant_info">
+  <view>用户信息授权!</view>
+  <button class='getuserinfo'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" style='border-radius=0;border:0;'>确定</button>
+  <button class='noGetuserinfo'  bindtap='noGetuserinfo' style='border-radius=0;border:0;'>取消</button>
+</view>
+</view>
+</view>
+
+

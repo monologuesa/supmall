@@ -1,0 +1,94 @@
+
+ <import src="../../wxParse/wxParse.wxml"/>  
+
+
+<view class="header"></view>
+
+<view class="top">
+<view>输入提现方式</view>
+<view bindtap="mag">提现管理</view>
+</view>
+
+<form bindsubmit="formSubmit">
+<!--提现的地方-->
+<view class="in">
+<view class="in_info">
+<view class="in_card {{index_data.isOpen_bank == 3 ? 'cancel':'' }}" data-index="3" bindtap="card">
+<view class="in_card_1">
+<view class="in_card_image"><image src="/image/51.png"></image></view>
+<view class="in_card_name">银行卡提现</view>
+</view>
+<checkbox checked="{{check}}"/>
+</view>
+
+<view class="in_card {{ index_data.isOpen_wechat == 3 ? 'cancel':''  }}" data-index="0" bindtap="card">
+<view class="in_card_2">
+<view class="in_card_image"><image src="/image/52.png"></image></view>
+<view class="in_card_name">微信提现</view>
+</view>
+<checkbox checked="{{check_1}}"/>
+</view>
+
+</view>
+
+</view>
+
+<view class="line"></view>
+
+
+<!--提现金额-->
+<view class="money">
+<view class="money_name">
+<view>提现金额</view>
+</view>
+<view class="money_info">
+<view>￥</view>
+<input required value="" name='money'  maxlength="9"></input>
+</view>
+
+<view class="money_all">
+<view class="money_all_name">当前可提现金额：<text>￥<text>{{index_data.balance}}</text></text></view>
+<view  bindtap="role">
+<view class="money_all_image {{index_data.isOpen_agreement == 1 ? 'cancel' : ''}}"bindtap="showModal">
+<image src="/image/53.png"></image>
+<view>提现规则</view>
+</view>
+</view>
+</view>
+
+
+
+</view>
+
+
+
+<view class="button">
+<button class="button1" form-type="submit">确认提现</button>
+</view>
+
+
+
+</form>
+
+<!--隐藏的地方-->
+<view wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="rule">
+<view class="rule_name">提现规则</view>
+  <view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+
+
+</view>
+
+
+
+
+</view>
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+ <import src="../../wxParse/wxParse.wxml"/>  
+
+<scroll-view class="bg" scroll-y>
+<!-- <view class="top_1">
+<image src="/image/5.png"></image>
+<view>请香</view>
+</view> -->
+
+
+<view class="header">
+<image src="/image/7.png"></image>
+</view>
+
+<!--祈福内容-->
+<view class="top_all">
+<view class="top">
+<view class="top_image"><image src="/image/45.png"></image></view>
+<view class="top_name">
+  <view class="wxParse" wx:if="{{index_data.saying != ''}}">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+</view>
+<!--祈福内容-->
+<view class="in">
+<view class="in_1" bindtap="comment">
+<image src="/image/77.png"></image>
+<view>继续请香</view>
+</view>
+<view class="in_2" bindtap="hide">
+<image src="/image/41.png"></image>
+<view>分享</view>
+</view>
+<view class="in_3" bindtap="getImage_1">
+<image src="/image/42.png"></image>
+<view>保存</view>
+</view>
+</view>
+
+</view>
+</scroll-view>
+
+
+<!--隐藏内容-->
+<view wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="footer">
+<view class="footer_info">
+<view class="footer_image"><image src="{{index_data_1.url_path}}" data-list="{{index_data_1.url_path}}" bindtap="imgYu"></image></view>
+<view>寺庙小程序</view>
+</view>
+<view class="footer_share">分享</view>
+<view class="footer_name">
+
+<view class="name_1">
+<button open-type='share'>
+<image src="/image/43.png"></image>
+<view>微信</view>
+</button>
+</view>
+
+<view class="name_2">
+<button bindtap="click">
+<image src="/image/65.png"></image>
+<view>朋友圈</view>
+</button>
+
+</view>
+<!-- <view class="name_3">
+<image src="/image/43.png"></image>
+<view>微博</view> 
+</view> -->
+</view>
+
+<view class="cancel" bindtap="hideModal">
+<view>取消</view>
+</view>
+</view>
+</view>
+
+
+<view class="last" wx:if="{{hide_1}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="last_info">
+<image src="{{index_data_1.url_path}}"></image>
+<view class="button" bindtap="getImage">保存到手机</view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<view class="header"></view>
+<view class="bg">
+<view class="top">
+<view>常见问题</view>
+</view>
+
+<!--问题-->
+<view class="in">
+<view class="in_info">
+<view class="in_info_data" wx:for="{{index_data.faq_arr}}" data-id="{{item.id}}" bindtap="jump" data-index="{{index}}">
+<view class="in_info_name">{{item.title}}</view>
+<image src="/image/right.png"></image>
+</view>
+
+</view>
+</view>
+
+<view class="service">
+<view>联系客服</view>
+</view>
+
+<contact-button class='cBtn' type="default-dark" size="27" session-from="weapp">
+<view>联系客服</view>
+</contact-button>
+
+
+
+<view class="top">
+<view>二维码</view>
+</view>
+
+
+<view class="footer">
+<view class="footer_info">
+<image src="{{index_data.weima.url_path}}" data-list="{{index_data.weima.url_path}}" bindtap="imgYu"></image>
+<view class="footer_info_name">二维码</view>
+</view>
+</view>
+
+</view>
+

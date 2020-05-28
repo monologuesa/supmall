@@ -1,0 +1,101 @@
+<view class="header"></view>
+
+
+
+<!--商品详情-->
+<view class="shop">
+<view class="shop_info">
+<view class="img"><image src="/image/11.jpg"></image></view>
+<view class="shop_name">
+<view class="name">金龙鱼 东北大米 蟹稻共生 盘锦大 米5KG</view>
+<view class="shop_num">
+<view class="day">七天无理由退换</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="line"></view>
+
+
+<!--评价星级-->
+<view class="top">
+<view class="top_info">
+<view>描述相符</view>
+<view class="top_info_image">
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+</view>
+</view>
+
+<view class="top_info">
+<view>描述相符</view>
+<view class="top_info_image">
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+</view>
+</view>
+
+
+<view class="top_info">
+<view>描述相符</view>
+<view class="top_info_image">
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+<image src="/image/per-nav5.png"></image>
+</view>
+</view>
+</view>
+
+<!--评价内容-->
+<view class="in">
+<textarea placeholder="亲，您对这个商品满意吗？您的评价会帮助我们 选择更好的商品哦~"></textarea>
+<view class="in_image">
+<view class="in_img"><image src="/image/08.jpg"></image></view>
+</view>
+</view>
+
+
+
+
+<!--提交-->
+<view class="button">
+<view>提交评价</view>
+
+
+</view>
+
+
+
+<!--隐藏按钮-->
+<view class="hide" wx:if="{{hide}}">
+<view class="mark"></view>
+<view class="info">
+<view class="info_name_3">提交后无法修改，请确认下不含隐私信息</view>
+<view class="info_name">
+<view class="info_name_1">确定</view>
+<view class="info_name_2">取消</view>
+</view>
+
+</view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+

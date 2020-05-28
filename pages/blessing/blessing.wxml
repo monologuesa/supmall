@@ -1,0 +1,132 @@
+
+<form bindsubmit="formSubmit" >
+<!-- <view class="bg"><image src="http://youte.xmtzxm.com.cn/weixinpl/youte/common_img/8.jpg"></image></view> -->
+<scroll-view class="bg" scroll-y>
+
+
+
+<!--祈福 省市寺庙  音乐图标-->
+<view class="top">
+<view class="top_2">
+<view class="top_p" bindtap="selectDistrict" >
+<view wx:if="{{location_p == ''}}">省</view>
+<view wx:if="{{location_p != ''}}">{{location_p}}</view>
+<image src="/image/18.png" wx:if="{{location_p == ''}}"></image>
+</view>
+<view class="top_c" bindtap="selectDistrict">
+<view wx:if="{{location_c == ''}}">市</view>
+<view wx:if="{{location_c != ''}}">{{location_c}}</view>
+<image src="/image/18.png" wx:if="{{location_c == ''}}"></image>
+</view>
+<!--寺庙按钮-->
+<view class="top_b" bindtap="click">
+<view wx:if="{{pname == ''}}">寺庙</view>
+<view wx:if="{{pname != ''}}">{{pname}}</view>
+<image src="/image/18.png"></image>
+</view>
+</view>
+
+
+<!--音乐-->
+<view class='bgmView' catchtap='BGM'>
+  <image wx:if='{{bgm}}' class='bgmImg {{bgmImgAni}}' src='/image/46.png'></image>
+  <image wx:else class='bgmImg' src='/image/64.png'></image>
+</view>
+</view>
+<!--照片-->
+<view class="image"><image src="/image/7.png"></image></view>
+
+<!--求子照片-->
+<view class="in">
+<scroll-view class="iu" scroll-x="true">
+<view class="iu_iu {{change == item.get_i ? 'active':''}}" data-index="{{index}}" data-id="{{item.img_id}}" bindtap="photo" wx:for="{{index_data.imgurl_arr}}">
+<image src="{{imageUrl}}{{item.imgurl}}"></image>
+</view>
+</scroll-view>
+</view>
+
+<!--祈福愿望-->
+<view class="wish">
+<view class="wish_name">
+<view class="wish_image"><image src="/image/6.png"></image></view>
+<view class="wish_info">
+<view class="name">祈福愿</view>
+<input placeholder="请填写您想要许下的愿望...." class="input" name = "comment" maxlength="16"></input>
+</view>
+</view>
+<view class="wish_people">
+<view class="wish_image"><image src="/image/6.png"></image></view>
+<view class="wish_info_1">
+<view class="name">祈福人</view>
+<input placeholder="请填写祈福人的名字...." class="input" name = "name" maxlength="8"></input>
+</view>
+</view>
+
+
+<view class="button">
+<button class="button1" form-type="submit">祈福</button>
+</view>
+
+</view>
+
+</scroll-view>
+
+</form>
+ <!--  -->
+<view class="location" wx:if="{{hide}}">
+<view class="mask" bindtap="hideModal"></view>
+<view  class="footer">
+<view class="footer_info" wx:for="{{index_data.list}}" data-id="{{item.id}}" data-pname="{{item.pname}}" bindtap="choose">
+<view bindtap="hideModal">{{item.pname}}</view>
+</view>
+</view>
+</view>
+
+
+
+<view class="pick" wx:if="{{hide_1}}">
+<view class="dialog-mask " style="z-index:11;visibility:{{addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+<!--城市三级联动-->
+<!--使用动画时不能wx:if="{{city.length>0&&isVisible}}" ，不能hidden=''属性否则无动画效果-->
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}" style="background-color: #D31008;color: #FDDF09;">
+  <view style="height:10% ;width:90%;margin-top:20rpx" class="address_info">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+  <picker-view style="width: 100%; height: 170px;" bindchange="cityChange" value="{{value}}" wx:key="">
+    <picker-view-column>
+      <view wx:for="{{provinces}}" class="picker-item">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+    <!-- <picker-view-column>
+      <view wx:for="{{areas}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column> -->
+  </picker-view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

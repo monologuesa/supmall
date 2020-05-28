@@ -1,0 +1,52 @@
+<!--头部-->
+<view class="header"></view>
+
+
+<!--详细的地方-->
+<view class="info" wx:for="{{index_data}}" wx:for-item="p">
+<view class="info_image">
+<view class="img"><image src="{{p.weixin_headimgurl}}"></image></view>
+<text>{{p.weixin_name}}</text>
+</view>
+
+<view class="info_info">
+<view wx:if="{{p.discuss != ''}}">{{p.discuss}}</view>
+<view wx:if="{{p.discuss == '' && p.discussimg == ''}}">该用户觉得商品很好，给了5星好评</view>
+</view>
+
+<view class="info_image_1" >
+<view class="img_1" wx:for="{{p.discussimg}}" data-list="{{p.discussimg}}" data-index="{{index}}" bindtap="imgYu">
+<image src="{{imageurl}}{{item}}" mode="widthFix"></image>
+</view>
+</view>
+
+<view class="info_day">{{p.createtime}}</view>
+
+<view class="shopName" wx:for="{{p.shop_arr}}">
+<view class="shopName_info_1">
+<text class="shopName_info">商家回复：</text>
+<text class="shopName_name">{{item.shop_discuss}}</text>
+</view>
+<view class="shopName_info_2">
+<view class="shopName_time">{{item.shop_createtime}}</view>
+</view>
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

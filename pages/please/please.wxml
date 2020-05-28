@@ -1,0 +1,94 @@
+
+
+<!-- <view class="bg"><image src="http://youte.xmtzxm.com.cn/weixinpl/youte/common_img/2.png"></image></view> -->
+<view class="bg">
+
+<!--祈福 省市寺庙  音乐图标-->
+<view class="top">
+</view>
+
+<view class="in">
+<image src="/image/47.png" class="png"></image>
+<image src="/image/44.png" class="png1"></image>
+<image src="/image/48.png" class="png2"></image>
+</view>
+
+<view class="last">
+
+<view class="last_info">
+<image src="http://youte.xmtzxm.com.cn/weixinpl/youte/common_img/70-2.png"></image>
+</view>
+<view class="p" bindtap="selectDistrict">
+<view wx:if="{{location_p == ''}}">省</view>
+<view wx:if="{{location_p != ''}}">{{location_p}}</view>
+<image src="/image/18.png" wx:if="{{location_p == ''}}"></image>
+</view>
+<view class="c" bindtap="selectDistrict">
+<view wx:if="{{location_c == ''}}">市</view>
+<view wx:if="{{location_c != ''}}">{{location_c}}</view>
+<image src="/image/18.png" wx:if="{{location_c == ''}}"></image>
+</view>
+<view class="b" bindtap="click_1">
+<view wx:if="{{ pname == ''}}">请选择寺庙</view>
+<view wx:if="{{ pname != ''}}" class="b_name">{{pname}}</view>
+<image src="/image/18.png"></image>
+</view>
+
+<view class='bgmView' catchtap='BGM'>
+  <image wx:if='{{bgm}}' class='bgmImg {{bgmImgAni}}' src='/image/46.png'></image>
+  <image wx:else class='bgmImg' src='/image/64.png'></image>
+</view>
+
+<view class="location" wx:if="{{hide}}">
+<view class="mask" bindtap="hideModal"></view>
+<view  class="footer">
+<view class="footer_info" wx:for="{{index_data.list}}" data-id="{{item.id}}" data-pname="{{item.pname}}" bindtap="choose">
+<view bindtap="hideModal">{{item.pname}}</view>
+</view>
+</view>
+</view>
+
+<view class="last_info_1">
+<image src="/image/45.png"></image>
+<view class="last_info_2" bindtap="jump">点击请香</view>
+</view>
+</view>
+</view>
+
+
+
+
+
+
+<view class="pick" wx:if="{{hide_1}}">
+<view class="dialog-mask " style="z-index:11;visibility:{{addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+<!--城市三级联动-->
+<!--使用动画时不能wx:if="{{city.length>0&&isVisible}}" ，不能hidden=''属性否则无动画效果-->
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}" style="background-color: #D31008;color: #FDDF09;">
+  <view style="height:10% ;width:90%;margin-top:20rpx" class="address_info">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+  <picker-view style="width: 100%; height: 170px;" bindchange="cityChange" value="{{value}}" wx:key="">
+    <picker-view-column>
+      <view wx:for="{{provinces}}" class="picker-item">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+    <!-- <picker-view-column>
+      <view wx:for="{{areas}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column> -->
+  </picker-view>
+</view>
+</view>
+
+
+
+
+
+

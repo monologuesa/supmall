@@ -1,0 +1,167 @@
+<view>
+<!--头部-->
+<view class="header">
+<view class="header_address" >
+<view class="address_info" bindtap="address_1">
+<image src="/image/address.png" class="address"></image>
+<view wx:if="{{ address != ''}}">{{address}}</view>
+<view wx:if="{{ address == ''}}">{{city}}</view>
+<image src="/image/18.png" class="right"></image>
+</view>
+</view>
+<view class="header_search" bindtap="search">
+<image src="/image/19.png" class="search"></image>
+<view>搜索你想要的内容.....</view>
+</view>
+</view>
+<!--头部结束-->
+
+<!--轮播图-->
+ <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="gray"indicator-active-color="white" >
+     <block wx:for="{{index_data.lunbo}}" wx:key="item" wx:for-item="p" class="block">
+      <swiper-item>
+        <image src="{{p.advertising_img}}" class="image" data-id="{{p.goods_id}}" bindtap="choose"></image>
+        </swiper-item>
+    </block>
+  </swiper>
+
+<!--分类八图-->
+<view class="class">
+<view class="class_info" bindtap="click_2" wx:if="{{index_data_1.is_goods_open == 1}}">
+<image src="/image/11.png"></image>
+<view>寺庙景点</view>
+</view>
+<view class="class_info"  bindtap="click_5">
+<image src="/image/10.png"></image>
+<view>旅游攻略</view>
+</view>
+<view class="class_info" bindtap="click_6">
+<image src="/image/15.png"></image>
+<view>美食攻略</view>
+</view> 
+<view class="class_info" bindtap="click_1">
+<image src="/image/14.png"></image>
+<view>酒店/住宿</view>
+</view>
+<view class="class_info" bindtap="click_3" wx:if="{{index_data_1.is_goods_open == 1}}">
+<image src="/image/12.png"></image>
+<view>当地特产</view>
+</view>
+<view class="class_info" bindtap="click_4" wx:if="{{index_data_1.is_goods_open == 1}}">
+<image src="/image/13.png"></image>
+<view>金牌店铺</view>
+</view>
+<view class="class_info" bindtap="click_7" >
+<image src="/image/16.png"></image>
+<view>积分商城</view>
+</view>
+<view class="class_info" bindtap="click_8">
+<image src="/image/17.png"></image>
+<view>查看更多</view>
+</view>
+</view>
+
+<!--满减优惠-->
+
+<view class="photo" bindtap="jump">
+ <view class="photo_image"><image src="{{index_data.img1}}"></image></view>
+</view>
+
+<!--优选特选-->
+<view class="specialty" wx:if="{{index_data_1.is_goods_open == 1}}">
+<view class="specialty_name" bindtap="choose_1">
+<view>优选特产</view>
+<image src="/image/right.png"></image>
+</view>
+
+<view class="specialty_msg" >
+<scroll-view class="specialty_msg_1" scroll-x="true">
+<view class="specialty_info" wx:for="{{index_data.p_specialty}}" bindtap="choose" data-id="{{item.goods_id}}">
+<image src="{{imageUrl}}{{item.default_imgurl}}"></image>
+<view class="specialty_info_name">{{item.goods_name}}</view>
+<view class="specialty_info_money">￥<text>{{item.now_price}}</text></view>
+</view>
+</scroll-view>
+</view>
+
+
+</view>
+
+<!--优选商家-->
+<view class="shopping" wx:if="{{index_data_1.is_goods_open == 1}}">
+<view class="shopping_name" bindtap="choose_3">
+<view>优选商家</view>
+<image src="/image/right.png"></image>
+</view>
+
+<scroll-view class="shopping_msg_1" scroll-x="true">
+<view class="shopping_info" wx:for="{{index_data.shop_shove}}" wx:for-item="p" bindtap="info" data-id="{{p.shop_user_id}}">
+<image src="{{imageUrl}}{{p.shop_img}}"></image>
+<view>{{p.shopName}}</view>
+</view>
+</scroll-view>
+</view>
+
+<!--尝鲜-->
+<view class="photo2" bindtap="jump_1">
+<image src="{{index_data.img2}}"></image>
+</view>
+
+<!--优选推荐-->
+<view class="recommend">
+<view class="recommend_name" bindtap="choose_2">
+<view>优选推荐</view>
+<image src="/image/right.png"></image>
+</view>
+
+<view class="recommend_info" wx:for="{{index_data.g_shove}}" data-type="{{item.get_type}}" data-id="{{item.id}}" bindtap="choose_4">
+<view class="recommend_info_image"><image src="{{imageUrl}}{{item.img}}"></image></view>
+<view class="recommend_info_name">
+<view class="all_name">{{item.name}}</view>
+<view class="recommend_info_money">
+<view class="number">库存<text>{{item.storenum}}</text></view>
+<view class="all" >
+<view class="money" wx:if="{{item.now_price != ''}}">￥<text>{{item.now_price}}</text></view>
+<view class="money1" wx:if="{{item.orgin_price != ''}}">￥{{item.orgin_price}}</view>
+</view>
+</view>
+</view>
+</view>
+<view class="line"></view>
+</view>
+</view>
+
+  <!-- wx:if="{{shouquan == 1}}" -->
+  <view class="footer" wx:if="{{shouquan == 1}}">
+  <view class="hide" ></view>
+  <view class="footer_info">
+    <view>用户信息授权!</view>
+    <button class='getuserinfo'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" style='border-radius=0;border:0;'>确定</button>
+    <button class='noGetuserinfo'  bindtap='noGetuserinfo' style='border-radius=0;border:0;'>取消</button>
+  </view>
+  </view>
+
+ <!-- 联系客服 -->
+ <!-- <view class="service" wx:if="{{hide_1}}"> -->
+ <view class="service" wx:if="{{hide_1}}">>
+ <view class="mark" bindtap="hide"></view>
+ <view class="service_info">
+ <view class="service_name">是否联系客服</view>
+ <view class="service_choose">
+ <view class="service_left" bindtap="hide">否</view>
+
+  <view class="ss">
+    <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:0rpx;left:-15rpx;">
+    </contact-button>
+    <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:0rpx;left:0rpx; ">
+    </contact-button>
+    <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:0rpx;left:30rpx; ">
+    </contact-button>
+    <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="opacity:0;position:absolute;top:0rpx;left:60rpx; ">
+    </contact-button>
+    <text style="position:relative;opacity:1;">是</text>
+     </view>
+ </view>
+ </view>
+ </view>

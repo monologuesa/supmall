@@ -1,0 +1,59 @@
+<view class="header"></view>
+<view class="top" wx:for="{{index_data}}" wx:for-item="item">
+<!--评价-->
+<view class="assess_all" >
+<view class="assess" >
+<view class="assess_image">
+<view class="assess_image_image"><image src="{{item.weixin_headimgurl}}"></image></view>
+<view>{{item.weixin_name}}</view>
+</view>
+
+<view class="assess_info">
+<view>{{item.discuss}}</view>
+</view>
+
+<view class="assess_img">
+<view class="assess_img_img"  wx:for="{{item.discussimg_arr}}" wx:for-item="p"><image src="{{imageUrl}}{{p}}" data-index="{{index}}" data-list="{{item.discussimg_arr}}" bindtap="imgYu_1" mode="widthFix"></image></view>
+</view>
+<view class="button">
+<image src="/image/25.png"></image>
+<view>全部评论</view>
+</view>
+</view>
+</view>
+<view class="input">
+<form bindsubmit="formSubmit" >
+<view class="input_info">
+<input placeholder="请输入" name="name"></input>
+<button form-type="submit" class="button_1">发送</button>
+
+</view>
+</form>
+
+</view>
+
+<view class="in_data"  wx:for="{{item.reply_arr}}" wx:for-item="p">
+<view class="in">
+<view class="in_info" >
+<view class="in_info_image"><image src="{{p.r_weixin_headimgurl}}"></image></view>
+<view class="in_info_name">
+<view class="name_1">{{p.r_weixin_name}}</view>
+<!-- <view class="time">10-10</view> -->
+</view>
+</view>
+<view class="in_name">
+<view>{{p.r_discuss}}</view>
+</view>
+</view>
+</view>
+</view>
+
+<!-- <view class="footer"  wx:for="{{index_data}}" wx:for-item="item">
+<view class="footer_1">回复</view>
+<view class="footer_2" data-id="{{item.e_id}}" bindtap="click">删除</view>
+</view> -->
+
+
+
+
+

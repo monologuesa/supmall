@@ -1,0 +1,29 @@
+<view class="header"></view>
+
+<view class="top">
+<image src="/image/52.png"></image>
+<view>微信支付</view>
+</view>
+<form bindsubmit="formSubmit">
+<view class="in">
+<view>手机号码</view>
+<input placeholder="" name="phone" value="{{index_data.phone}}"></input>
+</view>
+<view class="in">
+<view>真实名字</view>
+<input placeholder="" name="name" value="{{index_data.real_name}}"></input>
+</view>
+
+
+<view class="button">
+<button class="button1" form-type="submit">确认绑定</button>
+</view>
+
+</form>
+
+
+
+
+
+
+

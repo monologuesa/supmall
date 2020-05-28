@@ -1,0 +1,23 @@
+
+
+<view class="header"></view>
+
+<view class="top" bindtap="wechat">
+<view class="top_info">
+<image src="/image/54.png"></image>
+</view>
+<view class="top_name">
+<image src="/image/56.png"></image>
+<view>微信绑定</view>
+</view>
+</view>
+
+<view class="top" bindtap="bank">
+<view class="top_info">
+<image src="/image/54.png"></image>
+</view>
+<view class="top_name">
+<image src="/image/57.png"></image>
+<view>银行卡绑定</view>
+</view>
+</view>

@@ -1,0 +1,59 @@
+
+ <import src="../../wxParse/wxParse.wxml"/>  
+
+<!--店铺刷新-->
+
+<view class="refresh">
+<view>保证金缴纳</view>
+<view class="money">
+<view>￥<text>{{index_data.cash_money}}</text></view>
+</view>
+</view>
+
+
+<!--温馨提示-->
+<view class="prompt">
+  <view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+
+
+<!--支付方式-->
+
+<view class="pay">
+<view class="class">选择支付方式</view>
+
+<!--微信支付-->
+<view class="pay_info">
+<view class="pay_image">
+<image src="/image/52.png"></image>
+<view>微信支付</view>
+</view>
+<checkbox class="chenckbox"  checked="{{check}}"/>
+</view>
+
+<!-- 积分支付
+<view class="pay_info">
+<view class="pay_image">
+<image src="/image/c2-2.png"></image>
+<view>积分支付</view>
+</view>
+<view class="img"><image src="/image/choice.png"></image></view>
+</view> -->
+
+</view>
+
+
+<!--支付按钮-->
+<view class="button">
+<view bindtap="button">支付</view>
+</view>
+
+
+
+
+
+
+
+

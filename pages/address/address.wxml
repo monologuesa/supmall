@@ -1,0 +1,61 @@
+<view class="header"></view>
+<!--没有收货地址的时候-->
+<view class="null" wx:if="{{hide}}">
+<view class="null_name">您还没有收货地址</view>
+<view class="null_info" bindtap="button">新建地址</view>
+</view>
+
+<!--收货地址详情-->
+<view class="info" wx:for="{{index_data}}" wx:if="{{hide_1}}"  >
+
+<view class="info_top" bindtap="choose" data-id="{{item.id}}">
+<view class="info_photo">
+<view>{{item.name}}</view>
+<text>{{item.phone}}</text>
+</view>
+<view class="address">{{item.location_p}}{{item.location_c}}{{item.location_a}}{{item.address}}</view>
+</view>
+<view class="info_footer">
+<view class="info_footer_1" data-delindex="{{index}}" data-id="{{item.id}}" bindtap="check">
+<!-- <checkbox checked="{{item.is_default == 1 ? 'true':''}}" disabled="{{item.is_default == 0 ? 'false':''}}"/> -->
+<checkbox checked="{{item.is_default == 1 ? 'true':''}}" />
+<view class="aaa {{item.is_default == 1 ? 'active':''}}" >默认地址</view>
+</view>
+<view class="info_footer_info">
+<view class="info_footer_2" bindtap="edit" data-opindex="{{index}}">
+<image src="/image/38.png"></image>
+<view>编辑</view>
+</view>
+<view class="info_footer_3" bindtap="del" data-delindex="{{index}}" data-id="{{item.id}}">
+<image src="/image/39.png"></image>
+<view>删除</view>
+</view>
+</view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--新建地址-->
+<view style="height:80rpx;"></view>
+<view class="button" bindtap="button" wx:if="{{hide_1}}">
+<view class="button_info">
+<image src="/image/49.png"></image>
+<view>新建地址</view>
+</view>
+</view>
+
+
+
+
+
+

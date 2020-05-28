@@ -1,0 +1,20 @@
+
+<!--支付成功-->
+
+<view class="pay">
+<image src="/image/24.png"></image>
+
+<view class="first">
+<view class="pay_info">
+<view>您的审核没有通过</view>
+<text>原因：{{reason}}</text>
+</view>
+
+</view>
+
+</view>
+
+<!--这是两个按钮-->
+
+<view class="shop" bindtap="again">重新申请</view>
+

@@ -1,0 +1,288 @@
+<view class="header"></view>
+
+<view class="top">
+<view class="top_info">
+<view class="float {{type == 1 ? 'active': '' }}" data-index="1" bindtap="top">
+<view>全部</view>
+</view>
+<view class="float {{type == 2 ? 'active': '' }}" data-index="2" bindtap="top">
+<view>待付款</view>
+</view>
+<view class="float {{type == 3 ? 'active': '' }}" data-index="3" bindtap="top">
+<view>待发货</view>
+</view>
+<view class="float {{type == 4 ? 'active': '' }}" data-index="4" bindtap="top">
+<view>待收货</view>
+</view>
+<view class="float {{type == 9 ? 'active': '' }}" data-index="9" bindtap="top">
+<view>已完成</view>
+</view>
+<view class="float {{type == 7 ? 'active': '' }}" data-index="7" bindtap="top">
+<view>售后</view>
+</view>
+</view>
+</view>
+
+<!--全部-->
+<view wx:if="{{type == 1}}"  wx:for="{{data}}" wx:for-item="item">
+<view class="info">
+<view class="info_top" data-pid="{{item.supply_id}}" bindtap="jump" >
+<image src="{{imageUrl}}{{item.supply_img}}" class="per"></image>
+<view>{{item.shop_show_name}}</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="shop" wx:for="{{item.pro_detail}}" wx:for-item="item1" data-batchcode="{{item.batchcode}}" data-type="{{item.get_type}}" bindtap="get_type">
+<view class="shop_info" >
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item1.prvstr}}</view>
+<view class="shop_number">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="pay">
+<view>实付:<text>￥<text>{{item.totalprice}}</text></text></view>
+</view>
+</view>
+
+
+<!--待付款-->
+<view wx:if="{{type == 2}}"  wx:for="{{data}}" wx:for-item="item">
+<view class="info">
+<view class="info_top" data-pid="{{item.supply_id}}" bindtap="jump" >
+<image src="{{imageUrl}}{{item.supply_img}}" class="per"></image>
+<view>{{item.shop_show_name}}</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="shop" wx:for="{{item.pro_detail}}" wx:for-item="item1" data-batchcode="{{item.batchcode}}" data-type="{{item.get_type}}" bindtap="get_type">
+<view class="shop_info" >
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item1.prvstr}}</view>
+<view class="shop_number">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="pay">
+<view>实付:<text>￥<text>{{item.totalprice}}</text></text></view>
+</view>
+
+</view>
+
+
+<!--待发货-->
+<view wx:if="{{type == 3}}"  wx:for="{{data}}" wx:for-item="item">
+<view class="info">
+<view class="info_top" data-pid="{{item.supply_id}}" bindtap="jump">
+<image src="{{imageUrl}}{{item.supply_img}}" class="per"></image>
+<view>{{item.shop_show_name}}</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="shop" wx:for="{{item.pro_detail}}" wx:for-item="item1" data-batchcode="{{item.batchcode}}" data-type="{{item.get_type}}" bindtap="get_type">
+<view class="shop_info" >
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item1.prvstr}}</view>
+<view class="shop_number">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="pay">
+<view>实付:<text>￥<text>{{item.totalprice}}</text></text></view>
+</view>
+<view class="button" >
+<!--发货-->
+<!-- <view class="button_2" wx:if="{{item.order_send_code == 1}}" data-batchcode="{{item.batchcode}}" data-name="send" bindtap="click">{{item.order_send}}</view>
+</view> -->
+<view class="button_2" wx:if="{{item.order_send_code == 1}}" data-batchcode="{{item.batchcode}}"  bindtap="click_1">{{item.order_send}}</view>
+</view>
+
+</view>
+
+
+<!--待收货-->
+<view wx:if="{{type == 4}}"  wx:for="{{data}}" wx:for-item="item">
+<view class="info">
+<view class="info_top" data-pid="{{item.supply_id}}" bindtap="jump">
+<image src="{{imageUrl}}{{item.supply_img}}" class="per"></image>
+<view>{{item.shop_show_name}}</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="shop" wx:for="{{item.pro_detail}}" wx:for-item="item1" data-batchcode="{{item.batchcode}}" data-type="{{item.get_type}}"  bindtap="get_type">
+<view class="shop_info" >
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item1.prvstr}}</view>
+<view class="shop_number">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="pay">
+<view>实付:<text>￥<text>{{item.totalprice}}</text></text></view>
+</view>
+<view class="button">
+<!--查看物流-->
+<view class="button_1" wx:if="{{item.expressTips_code == 1}}" data-expressnum="{{item.expressnum}}" bindtap="wuliu">{{item.expressTips}}</view>
+</view>
+
+</view>
+
+
+<!--已完成-->
+<view wx:if="{{type == 9}}"  wx:for="{{data}}" wx:for-item="item" >
+<view class="info">
+<view class="info_top" data-pid="{{item.supply_id}}" bindtap="jump">
+<image src="{{imageUrl}}{{item.supply_img}}" class="per"></image>
+<view>{{item.shop_show_name}}</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="shop" wx:for="{{item.pro_detail}}" wx:for-item="item1" data-batchcode="{{item.batchcode}}" data-type="{{item.get_type}}"  bindtap="get_type">
+<view class="shop_info" >
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item1.prvstr}}</view>
+<view class="shop_number">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="pay">
+<view>实付:<text>￥<text>{{item.totalprice}}</text></text></view>
+</view>
+<view class="button">
+<!-- <view class="button_1" wx:if="{{item.expressTips_code == 1}}" >{{item.order_statues}}</view> -->
+</view>
+
+</view>
+
+<!--售后-->
+<view wx:if="{{type == 7}}"  wx:for="{{data}}" wx:for-item="item">
+<view class="info">
+<view class="info_top" data-pid="{{item.supply_id}}" bindtap="jump">
+<image src="{{imageUrl}}{{item.supply_img}}" class="per"></image>
+<view>{{item.shop_show_name}}</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+
+<view class="shop" wx:for="{{item.pro_detail}}" wx:for-item="item1" data-batchcode="{{item.batchcode}}" data-type="{{item.get_type}}" bindtap="look">
+<view class="shop_info" >
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num">
+<view class="day">{{item1.prvstr}}</view>
+<view class="shop_number">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+<view class="pay">
+<view>实付:<text>￥<text>{{item.totalprice}}</text></text></view>
+</view>
+<view class="button">
+<!--同意退款-->
+<view class="button_1" wx:if="{{item.order_agree_refund_code == 1}}" data-batchcode="{{item.batchcode}}" data-name="refund_yes" bindtap="click" >{{item.order_agree_refund}}</view>
+<!--同意换货-->
+<view class="button_1" wx:if="{{item.order_agree_barter_code == 1}}" data-batchcode="{{item.batchcode}}" data-name="barter_yes" bindtap="click">{{item.order_agree_barter}}</view>
+<!--驳回换货-->
+<view class="button_1" wx:if="{{item.order_turn_barter == 1}}" data-batchcode="{{item.batchcode}}" data-name="barter_no" bindtap="click">{{item.order_turn_barter}}</view>
+
+<!--驳回退款-->
+<view class="button_1" wx:if="{{item.order_turn_refund_code == 1}}" data-batchcode="{{item.batchcode}}" data-name="refund_no" bindtap="click">{{item.order_turn_refund}}</view>
+
+</view>
+</view>
+
+<view class="none" wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<form bindsubmit="formSubmit" >
+<view class="none_info">
+<view class="none_top">填写信息</view>
+<view class="logistics">
+<view class="logistics_name">物流单号</view>
+<input type="number" placeholder="填写物流单号" name="number"></input>
+</view>
+<view class="delivery">
+<view class="delivery_name">物流公司</view>
+
+<view class='select_box'>
+    <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{name}}</text>        
+    </view>
+    <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx; z-index:12'>
+        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' data-name="{{item.expresses_name}}" data-id="{{item.expresses_id}}" catchtap='optionTap'>{{item.expresses_name}}</text>
+    </view>
+</view>
+</view>
+<view class="last">
+<!-- <view class="last_left" bindtap="hideModal">取消</view> -->
+<button class="last_left" bindtap="hideModal">取消</button>
+<button class="last_right" form-type="submit" bindtap="right">确认</button>
+
+</view>
+
+</view>
+</form>
+</view>
+
+
+
+
+
+
+

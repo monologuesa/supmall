@@ -1,0 +1,42 @@
+<view class="header">
+<view class="top">
+<view class="header_image"><image src="{{index_data.weixin_headimgurl}}"></image></view>
+<view>{{index_data.weixin_name}}</view>
+</view>
+<view class="footer">
+<view class="number">{{index_data.balance}}</view>
+<view class="day">
+<view>已经连续签到<text>{{index_data.sign_in_tian}}</text>天了</view>
+</view>
+</view>
+</view>
+
+<view class="in">
+<view class="in_info" wx:for="{{index_data.integral_log}}">
+<view class="in_info_1">
+<view>{{item.remark}}</view>
+<text>{{item.createtime}}</text>
+</view>
+<view class="in_info_2">
++{{item.money}}
+</view>
+</view>
+
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

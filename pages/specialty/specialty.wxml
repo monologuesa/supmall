@@ -1,0 +1,86 @@
+<view>
+<!--头部-->
+<view class="header">
+<view class="header_address" >
+<view class="address_info" bindtap="click_4">
+<image src="/image/address.png" class="address"></image>
+<view>{{city}}</view>
+<image src="/image/18.png" class="right"></image>
+</view>
+</view>
+<view class="header_search" bindtap="input">
+<image src="/image/19.png" class="search"></image>
+<view>搜索你想要的内容.....</view>
+</view>
+
+<!-- <view class="specialty_1">
+<scroll-view class="specialty" scroll-x="true">
+<view class="specialty_info {{ type == item.get_i ? 'active':'' }}" wx:for="{{index_data_1.arr}}" data-id="{{item.type_id}}" data-index="{{index}}" bindtap="click">
+<view class="specialty_info_1" >{{item.type_name}}</view>
+</view>
+</scroll-view>
+</view> -->
+</view>
+<!--头部结束-->
+
+<!--轮播图-->
+ <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="gray"indicator-active-color="white"  class="swiper" >
+     <block wx:for="{{index_data.lunbo}}" wx:key="item" class="block">
+      <swiper-item>
+        <image src="{{item.adimg_j}}" class="image" data-id="{{item.ad_link_j}}" bindtap="choose"></image>
+        </swiper-item>
+    </block>
+  </swiper>
+<!--筛选-->
+<view class="listLine">
+<view class="specialty_1">
+<scroll-view class="specialty" scroll-x="true">
+<view class="specialty_info {{ type == item.get_i ? 'active':'' }}" wx:for="{{index_data_1.arr}}" data-id="{{item.type_id}}" data-index="{{index}}" bindtap="click">
+<view class="specialty_info_1" >{{item.type_name}}</view>
+</view>
+</scroll-view>
+</view>
+<view class="create_info" bindtap="open">
+<image src="/image/61.png"></image><text >筛选</text>
+</view>
+</view>
+<!--列表-->
+<view class="ss">
+<view class="list"wx:for="{{index_data.goods}}" >
+<view class="list_info" data-id="{{item.id}}" bindtap="list">
+<image src="{{imageurl}}{{item.default_imgurl}}"></image>
+<view class="name">{{item.pname}}</view>
+<view class="list_money">
+<view class="money">￥<text>{{item.now_price}}</text></view>
+<view class="num">
+<view>销量</view>
+<text>{{item.zong_sell_count}}</text>
+</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+
+ <view class="warrant" wx:if="{{shouquan == 1}}">
+<view class="hide_1" ></view>
+<view class="warrant_info">
+  <view>用户信息授权!</view>
+  <button class='getuserinfo'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" style='border-radius=0;border:0;'>确定</button>
+  <button class='noGetuserinfo'  bindtap='noGetuserinfo' style='border-radius=0;border:0;'>取消</button>
+</view>
+</view>
+
+
+
+<!--筛选的信息-->
+<view wx:if="{{hide_2}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="filter">
+<view class="popularity {{type_1 == 1 ? 'text':'' }}" data-index="1" bindtap="select">销量</view>
+<view class="near {{type_1 == 2 ? 'text':'' }}" data-index="2" bindtap="select">离我最近</view>
+</view>
+</view>

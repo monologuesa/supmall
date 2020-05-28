@@ -1,0 +1,91 @@
+<!--这只是一张照片-->
+<view class="photo">
+<view class="photo_image"><image src="/image/22.jpg"></image></view>
+<view class="photo_info">
+<view class="photo_name">交易关闭</view>
+</view>
+</view>
+<!--个人信息-->
+<view class="address">
+<view class="address_info">
+<view class="address_name">
+<image src="/image/58.png" class="person6"></image>
+<view class="name" wx:for="{{index_data.arr2}}" wx:for-item="item">
+<view class="name1">
+<view>{{item.add_name}}</view>
+<text>{{item.add_phone}}</text>
+</view>
+<view class="info">
+<view>{{item.add_add}}</view>
+</view>
+</view>
+</view>
+<image src="/image/right.png" class="right1"></image>
+</view>
+</view>
+
+
+<!--商品信息-->
+<view class="shop">
+<view class="shop_info" wx:for="{{index_data.p_arr}}" wx:for-item="item1">
+ <view class="img"><image src="{{imageUrl}}{{item1.product_default_imgurl}}"></image></view>
+<view class="shop_name">
+<view class="name">{{item1.product_name}}</view>
+<view class="shop_num" >
+<view class="day">{{item1.prvstr}}</view>
+<view class="num">
+<view class="less">*</view>
+<view class="number">{{item1.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+<view class="money">
+<view>商品总价</view>
+<text>￥<text>{{index_data.origin_price}}</text></text>
+</view>
+<view class="fare">
+<view>运费(快递)</view>
+<text>￥<text>{{index_data.ExpressPrice}}</text></text>
+</view>
+<view class="reality">
+<view wx:if="{{index_data.price != 0 && index_data.needScore == 0}}">实付价格</view>
+<text wx:if="{{index_data.price != 0 && index_data.needScore == 0}}">￥<text>{{index_data.price}}</text></text>
+<view wx:if="{{index_data.price == 0 && index_data.needScore != 0}}">实付积分</view>
+<text wx:if="{{index_data.price == 0 && index_data.needScore != 0}}"><text>{{index_data.needScore}}积分</text></text>
+<view wx:if="{{index_data.price != 0 && index_data.needScore != 0}}">实付总价</view>
+<text wx:if="{{index_data.price != 0 && index_data.needScore != 0}}"><text>￥{{index_data.price}} + {{index_data.needScore}}积分</text></text>
+</view>
+</view>
+
+<!--订单信息-->
+<view class="infor">
+<view class="infor_name">订单信息</view>
+<view class="infor_pay" wx:if="{{index_data.expressnum != null}}">
+<view>订单编号：</view>
+<text selectable='true'>{{index_data.batchcode}}</text>
+</view>
+<view class="infor_pay">
+<view>快递单号：</view>
+<text selectable='true'>{{index_data.expressnum}}</text>
+</view>
+<view class="infor_pay">
+<view>创建时间：</view>
+<text>{{index_data.createtime}}</text>
+</view>
+<view class="infor_pay">
+<view>付款时间：</view>
+<text>{{index_data.paytime}}</text>
+</view>
+<view class="infor_pay">
+<view>发货时间：</view>
+<text>{{index_data.confirm_sendtime}}</text>
+</view>
+</view>
+
+
+<!--查看物流-->
+<!-- <view class="watch">
+<view class="watch_name" bindtap="look" wx:if="{{index_data.order_aftersale_code == 1}}">查看订单</view> -->
+
+<!-- </view> -->

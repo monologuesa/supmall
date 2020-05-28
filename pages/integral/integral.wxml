@@ -1,0 +1,59 @@
+
+
+<!--头部-->
+<view class="header">
+<view class="header_info">
+<view class="header_info_image">
+<view class="img"><image src="{{index_data.weixin_headimgurl}}"></image></view>
+<view class="name">
+<view class="name_info">{{index_data.weixin_name}}</view>
+<view class="day">
+<view>已经连续签到</view>
+<view>{{index_data.sign_in_tian}}</view>
+<view>天</view>
+</view>
+</view>
+</view>
+<view class="check" bindtap="check" wx:if="{{index_data.get_type == 0}}">签到</view>
+<view class="check"  wx:if="{{index_data.get_type == 1}}">已签到</view>
+</view>
+</view>
+
+<!--签到记录-->
+<view class="recording" bindtap="click">
+<view class="recording_info">
+<image src="/image/sign.png"></image>
+<view>签到记录</view>
+</view>
+<image src="/image/right.png" class="right"></image>
+</view>
+
+<!--兑换好礼-->
+
+<view class="bg" wx:if="{{index_data.goods != ''}}">
+
+<view class="good">
+<view class="good_top">
+<view class="good_top_name1">积分好礼</view>
+</view>
+
+<view class="info">
+<view class="info_a" wx:for="{{index_data.goods}}" data-id="{{item.goods_id}}" bindtap="jump">
+<view class="info_image"><image src="{{imageUrl}}{{item.default_imgurl}}"></image></view>
+<view class="info_name">{{item.goods_name}}</view>
+<view class="info_num"><text>{{item.need_score}}</text>积分</view>
+<view class="info_n">积分兑换</view>
+</view>
+</view>
+</view>
+</view>
+
+
+<view class="footer" wx:if="{{index_data.goods == ''}}">
+<view class="footer_info">
+<image src="/image/75.png"></image>
+</view>
+</view>
+
+
+

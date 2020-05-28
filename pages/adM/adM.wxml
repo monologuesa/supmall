@@ -1,0 +1,191 @@
+<view class="header"></view>
+
+<form bindsubmit="formSubmit" >
+
+
+<view class="top">
+<view class="top_name">广告标题</view>
+<input placeholder="标题" name="name" value="{{index_data_1.pname}}"></input>
+</view>
+
+<view class="top" bindtap="position" wx:if="{{index == 2}}">
+<view class="top_name">广告位置</view>
+<view class="top_image">
+<view >{{content}}</view>
+<image src="/image/right.png"></image>
+</view>
+</view>
+
+
+<view class="tui-picker-content" wx:if="{{index == 2}}">
+  <picker mode="date" value="{{time}}" start="1979-10-01" end="2099-10-08" bindchange="changeDate">
+    <view class="tui-picker-detail">
+    <view class="aaa">
+    <view class="top_name">开始时间</view>
+    <view class="time">{{time}}</view>
+    </view> 
+    </view>
+  </picker>
+</view>
+
+
+<view class="tui-picker-content" wx:if="{{index == 2}}">
+  <picker mode="date" value="{{time_1}}" start="1979-10-01" end="2099-10-08" bindchange="changeDate1">
+    <view class="tui-picker-detail">
+    <view class="aaa">
+    <view class="top_name">结束时间</view>
+    <view class="time">{{time_1}}</view>
+    </view> 
+    </view>
+  </picker>
+</view>
+
+
+<view class="top" wx:if="{{index == 2}}">
+<view class="top_name">价格</view>
+<text><text>￥{{all_money}}</text></text>
+</view>
+
+
+<view class="top_img">
+<view class="top_img_name">上传广告图片(建议上传尺寸 375*106)</view>
+
+<view class="top_image_image" bindtap="addimage" wx:if="{{index==1}}"><image wx:if="{{bgimgurl == ''}}" src="{{index_data_1.advertising_img}}"></image> <image src="{{bgimgurl}}" wx:if="{{bgimgurl != ''}}"></image></view>
+
+
+<view class="top_image_image" bindtap="addimage" wx:if="{{index==2}}"><image src="/image/31.png" wx:if="{{bgimgurl == ''}}"></image><image src="{{bgimgurl}}" wx:if="{{bgimgurl != ''}}"></image></view>
+
+
+</view>
+
+
+<view class="top" bindtap="address" wx:if="{{index == 2}}" >
+<view class="top_name" wx:if="{{hide_3}}">跳转地址</view>
+<view class="top_image" wx:if="{{hide_3}}">
+<view>{{name_1}}</view>
+<image src="/image/right.png"></image>
+</view>
+</view>
+
+
+
+<!-- <view class="top">
+<view class="top_name">需支付</view>
+<text wx:if="{{all_money == ''}}"><text>￥{{all_money}}</text></text>
+</view> -->
+
+
+
+
+<!--支付-->
+<view class="button" wx:if="{{index == 2}}">
+<button class="button1" form-type="submit">支付</button>
+</view>
+
+<!--修改-->
+<view class="button" wx:if="{{index == 1}}">
+<button class="button1" form-type="submit">修改</button>
+</view>
+
+
+</form>
+
+<view class="info_1" wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="info_1_data">
+<view class="info_1_top">
+<view></view>
+<view class="name_1">广告位置</view>
+<image src="/image/30.png" class="img" bindtap="hideModal"></image>
+</view>
+<view>
+<view class="info_1_in" wx:for="{{index_data.place}}" data-content="{{item.content}}" data-index="{{item.type}}" data-money="{{item.money}}" bindtap="click">
+<view>{{item.content}}</view>
+<checkbox checked="{{type == item.type ? 'true' : '' }}"/>
+</view>
+</view>
+
+</view>
+</view>
+
+<view class="info_2" wx:if="{{hide_1}}">
+
+<view class="mark" bindtap="hideModal" ></view>
+
+<view class="info_1_data">
+<view class="info_1_top">
+<view></view>
+<view class="name_1">跳转地址</view>
+<image src="/image/30.png" class="img" bindtap="hideModal"></image>
+</view>
+<!--首页轮播图-->
+<view wx:if="{{type == 1}}"  wx:for="{{index_data.goods}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view class="info_1_in" wx:for="{{index_data.goods}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+<!--特产区域-->
+<view wx:if="{{type == 2}}">
+<view class="info_1_in" wx:for="{{index_data.goods}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+<!--景点区域-->
+<view wx:if="{{type == 4}}">
+<view class="info_1_in" wx:for="{{index_data.scenic}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{ type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+<!--旅游攻略区域-->
+<view wx:if="{{type == 5}}">
+<view class="info_1_in" wx:for="{{index_data.strategy}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{ type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+
+<!--寺庙区域-->
+<view wx:if="{{type == 6}}">
+<view class="info_1_in" wx:for="{{index_data.temple}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{ type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+
+<!--美食攻略区域-->
+<view wx:if="{{type == 7}}">
+<view class="info_1_in" wx:for="{{index_data.cate_strategy}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{ type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+
+<!-- 当地特产轮播图区域 -->
+<view wx:if="{{type ==8}}">
+<view class="info_1_in" wx:for="{{index_data.goods}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="click_1" data-name="{{item.name}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{ type_1 == index ? 'true':'' }}"/>
+</view>
+</view>
+
+</view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

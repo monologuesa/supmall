@@ -1,0 +1,57 @@
+<view class="header"></view>
+
+<view class="top">
+<image src="/image/51.png"></image>
+<view>银行卡</view>
+</view>
+
+<form bindsubmit="formSubmit">
+<view class="in">
+<view>手机号码</view>
+<input placeholder="" name="phone"  value="{{index_data.phone}}"></input>
+</view>
+<view class="in">
+<view>真实名字</view>
+<input placeholder="" name="name" value="{{index_data.real_name}}"></input>
+</view>
+<view class="in">
+<view>银行卡卡号</view>
+<input placeholder="" name="card" value="{{index_data.bind_account}}"></input>
+</view>
+<view class="in">
+<view>开户行</view>
+<input placeholder="默认填写开户行" name="blak" value="{{index_data.bind_band}}"></input>
+</view>
+<view class="in">
+<view>所属支行</view>
+<input placeholder="" name="balk_address" value="{{index_data.bind_bang_address}}"></input>
+</view>
+
+
+<view class="button">
+<button class="button1" form-type="submit">确认绑定</button>
+</view>
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

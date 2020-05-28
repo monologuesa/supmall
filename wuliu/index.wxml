@@ -1,0 +1,2 @@
+<!--pages/center/store/onestore/wuliu/index.wxml-->
+<web-view src="{{path}}"></web-view>

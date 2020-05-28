@@ -1,0 +1,83 @@
+<view class="header"></view>
+
+<form bindsubmit="formSubmit">
+<view class="top">
+<view class="top_info" wx:for= "{{index_data.p_arr}}">
+<view class="img"><image src="{{imageUrl}}{{item.product_default_imgurl}}"></image></view>
+<view class="top_name">
+<view class="name">{{item.product_name}}</view>
+<view class="top_num">
+<view class="name_1">{{item.prvstr}}</view>
+<view class="num">
+<view class="less">*</view>
+<view class="number">{{item.rcount}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+<view class="in">
+<view class="in_info">
+<view class="in_name">描述相符</view>
+<view class="in_image">
+<block wx:for="{{one_1}}" wx:key="index">
+<image catchtap="in_xin" id='{{index+1}}'data-in='1' src="/image/59.png"></image>
+</block>
+<block wx:for="{{two_1}}" wx:key="index">
+<image catchtap="in_xin" id='{{index+1}}'data-in='2' src="/image/60.png"></image>
+</block>
+
+</view>
+</view>
+<view class="in_info">
+<view class="in_name">物流服务</view>
+<view class="in_image_1">
+<block wx:for="{{noe_2}}" wx:key="index">
+<image catchtap="achieve" id='{{index+1}}'data-in='3' src="/image/59.png"></image>
+</block>
+<block wx:for="{{two_2}}" wx:key="index">
+<image catchtap="achieve" id='{{index+1}}'data-in='4' src="/image/60.png"></image>
+</block>
+</view>
+</view>
+<view class="in_info">
+<view class="in_name">服务态度</view>
+<view class="in_image">
+<block wx:for="{{noe_3}}" wx:key="index">
+<image catchtap="get_xin" id='{{index+1}}'data-in='5' src="/image/59.png"></image>
+</block>
+<block wx:for="{{two_3}}" wx:key="index">
+<image catchtap="get_xin" id='{{index+1}}'data-in='6' src="/image/60.png"></image>
+</block>
+</view>
+</view>
+</view>
+
+
+<textarea placeholder="亲，您对这个商品满意吗？您的评价会帮助我们 选择更好的商品哦~" name="name"></textarea>
+
+
+<view class="footer">
+<view class="footer_info">
+
+<!-- <view class="footer_image" wx:if="{{tempFilePaths}}"  wx:for="{{tempFilePaths}}"><icon type="clear" class="inco" size="23" catchtap="clearImg" data-id="{{index}}"/><image src="{{item}}"></image></view>
+<view class="footer_image" bindtap="addimage" wx:if="{{tempFilePaths.length != 3}}"><image src="/image/31.png"></image></view> -->
+
+<view class="footer_image" wx:if="{{imgArr}}"  wx:for="{{imgArr}}"><icon type="clear" class="inco" size="23" catchtap="clearImg" data-index="{{index}}"/><image src="{{imageUrl}}{{item}}"></image></view>
+<view class="footer_image" bindtap="addimage" wx:if="{{imgArr.length != 9}}"><image src="/image/31.png"></image></view>
+
+</view>
+</view>
+
+
+<view>
+<button class="button1" form-type="submit">提交评价</button>
+</view>
+
+
+
+
+
+</form>

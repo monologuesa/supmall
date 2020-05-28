@@ -1,0 +1,106 @@
+<view class="header"></view>
+
+
+<form bindsubmit="formSubmit">
+<!--申请类型-->
+<view class="top">
+<view class="top_name">申请类型</view>
+<view class="top_info">
+<view class="top_info_img">
+<checkbox checked="{{check}}" data-index="1" bindtap="check"/>
+<view>退款</view>
+</view>
+<view class="top_info_img" wx:if="{{gettype != 2}}">
+<checkbox  checked="{{check_1}}" data-index="2"  bindtap="check"/>
+<view>退货退款</view>
+</view>
+
+</view>
+</view>
+
+<!--申请原因-->
+<view class="in" bindtap="showModal">
+<view>申请说明</view>
+<text>{{name}}</text>
+<image src="/image/right.png"></image>
+</view>
+
+<!--退款金额-->
+<!-- <view class="money" wx:if="{{num == 1}}"> -->
+<view class="money">
+<view>退款金额</view>
+<text class="totalprice">￥<text>{{totalprice}}</text></text>
+</view>
+
+<!--申请原因2-->
+<view class="info">
+<view class="info_top">
+<view class="name">申请原因</view>
+<view class="name1">您还可以输入<text>{{current}} / {{max}}</text>字</view>
+</view>
+
+<textarea placeholder="必填，请您详细填写申请说明...." name="introduction" maxlength='170' bindinput='limit' value="{{text}}"></textarea>
+
+<view class="all_image">
+
+<!-- <view class="info_image" wx:if="{{tempFilePaths}}"  wx:for="{{tempFilePaths}}"><icon type="clear" class="inco" size="23" catchtap="clearImg" data-id="{{index}}"/><image src="{{item}}"></image></view>
+<view class="info_image" bindtap="addimage" wx:if="{{tempFilePaths.length != 3}}"><image src="/image/31.png"></image></view> -->
+
+<view class="info_image" wx:if="{{imgArr}}"  wx:for="{{imgArr}}"><icon type="clear" class="inco" size="23" catchtap="clearImg" data-index="{{index}}"/><image src="{{imageUrl}}{{item}}"></image></view>
+<view class="info_image" bindtap="addimage" wx:if="{{imgArr.length < 9}}"><image src="/image/31.png"></image></view>
+
+</view>
+</view>
+
+
+
+
+
+<!--提交申请-->
+
+<view class="botton">
+<button class="button1" form-type="submit">提交申请</button>
+</view>
+
+
+</form>
+
+<!--隐藏的地方-->
+
+<view class="hide" wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="footer" >
+<view class="footer_info">
+<view></view>
+<view>退款原因</view>
+<image src="/image/30.png" bindtap="hideModal"></image>
+</view>
+
+<view class="footer_name" bindtap="click" data-index="{{item.type}}" data-name="{{item.name}}"  wx:for="{{reason}}">
+<view>{{item.name}}</view>
+<checkbox checked="{{type == item.type ? 'true' : ''}}" class="check" />
+</view>
+
+</view>
+
+
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

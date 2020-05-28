@@ -1,0 +1,81 @@
+
+
+<view class="header" wx:if="{{index_data != ''}}">
+<!--头部-->
+<view class="tabBar">
+<view class="tabBar_info">
+<view>购物车</view>
+</view>
+<view class="text" bindtap="change">{{ remove ? '编辑' : '管理' }}</view> 
+</view>
+
+<!--主体-->
+<checkbox-group  bindchange="checkboxChange">
+ <view class="shop" wx:for="{{index_data}}" wx:for-item="p">
+ <view class="shop_name" >
+ <checkbox  class="choice" bindtap="shopBool" data-supplys_id="{{p.supplys_id}}" checked="{{p.check}}"/>
+ <view data-id="{{p.supplys_id}}" bindtap="jump_1" class="shop_info">
+ <image class="c2" src="/image/c2-2.png"></image>
+ <view wx:if="{{p.store_name != null}}">{{p.store_name}}</view>
+ <image class="right" src="/image/right.png"></image>
+ </view>
+ </view>
+
+ <view class="line1"></view>
+
+<view class="recommend_info" wx:for="{{p.product}}" wx:for-item="item" >
+<view class="image1"><checkbox data-supplys_id="{{p.supplys_id}}" data-id="{{item.id}}" value="{{item.now_prices * item.num}}" class="image" bindtap="boolt" checked="{{item.check}}"/></view>
+<view class="recommend_info_image" data-id="{{item.product_id}}" bindtap="jump"><image src="{{imageUrl}}{{item.default_imgurl}}"></image></view>
+<view class="recommend_info_name">
+<view class="name_1" data-id="{{item.product_id}}" bindtap="jump">{{item.name}}</view>
+<view class="recommend_info_norm" data-id="{{item.product_id}}" bindtap="jump">
+<view>{{item.prvstr}}</view>
+</view>
+<view class="recommend_info_money">
+<view class="nunnn">
+<text class="money">￥<text>{{item.now_prices}}</text></text>
+<text class="money1"><text>￥</text>{{item.orgin_price}}</text>
+</view>
+<view class="nunn">
+<text class="less" bindtap="less" data-shopindex="{{p.supplys_id}}" data-index="{{index}}" data-pid="{{item.id}}" data-id="{{item.product_id}}" data-price="{{item.now_prices}}" data-prvalues="{{item.prvalues}}">-</text>
+<view>{{item.num?item.num:1}}</view>
+<text class="add" bindtap="add" data-shopindex="{{p.supplys_id}}" data-index="{{index}}" data-pid="{{item.id}}" data-id="{{item.product_id}}" data-price="{{item.now_prices}}" data-prvalues="{{item.prvalues}}">+</text>
+</view>
+</view>
+</view>
+</view>
+<view class="line"></view>
+ </view>  
+ </checkbox-group> 
+
+<view style="height:160rpx"></view>
+<!--底部-->
+<view class="footer">
+<view class="footer_info">
+<checkbox class="image_1 {{remove == false ? 'hide': ''}}" bindtap="boolts" checked="{{allcheck}}"/>
+<view class="all {{remove == false ? 'hide': ''}}">全选</view>
+<view class="total {{remove == false ? 'hide': ''}}">合计:</view>
+<view class="money2 {{remove == false ? 'hide': ''}}">￥<text>{{prices}}</text></view>
+</view>
+<view class="pay {{remove == false ? 'hide': ''}}" bindtap="sum">去结算</view>
+<view class="pay {{remove == false ? ' ': 'hide'}}" bindtap="delete">删除</view>
+</view>
+</view>
+
+ <view class="warrant" wx:if="{{shouquan == 1}}">
+<view class="hide_1" ></view>
+<view class="warrant_info">
+  <view>用户信息授权!</view>
+  <button class='getuserinfo'  open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" style='border-radius=0;border:0;'>确定</button>
+  <button class='noGetuserinfo'  bindtap='noGetuserinfo' style='border-radius=0;border:0;'>取消</button>
+</view>
+</view>
+
+
+
+<view class="data" wx:if="{{index_data == ''}}">
+<view class="data_info">
+<image src="/image/75.png" class="data_info_image"></image>
+<view class="data_info_add" bindtap="shopping">去购物</view>
+</view>
+</view>

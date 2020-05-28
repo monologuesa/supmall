@@ -1,0 +1,26 @@
+
+<view class="header">
+<view bindtap="ad">申请广告位</view>
+</view>
+
+
+
+<view class="ad_all">
+<view class="ad" wx:for="{{index_data}}" data-id="{{item.a_id}}" bindtap="click">
+<view class="ad_info">
+<view class="image"><image src="{{item.advertising_img}}"></image></view>
+<view class="shop">
+<view class="name">{{item.type_name}}</view>
+<view class="money">
+<text>￥</text><text>{{item.money}}</text>
+<view>{{item.end_time}}</view>
+</view>
+</view>
+</view>
+</view>
+
+
+
+
+
+</view>

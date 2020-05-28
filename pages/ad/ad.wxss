@@ -1,0 +1,45 @@
+.header{
+  height: 80rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+  display: flex;
+  justify-content: flex-end;
+  font-size: 35rpx;
+  color: #ffffff;
+  padding-right: 30rpx;
+  padding-top:40rpx; 
+}
+
+
+.ad_info{
+  width: 90%;
+  margin-left: 5%;
+}
+.image{
+  border-radius: 20rpx;
+  margin-top: 40rpx;
+  height: 300rpx;
+}
+.image image{
+  border-radius: 20rpx;
+  height: 100%;
+  width: 100%;
+}
+.shop{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.money{
+  display: flex;
+}
+.money text{
+  color:rgba(68,187,255,1);
+}
+.money view{
+  margin-left: 20rpx;
+  color:rgba(153,153,153,1);
+}
+.name{
+  color:rgba(68,187,255,1);
+}

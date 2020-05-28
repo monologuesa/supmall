@@ -1,0 +1,43 @@
+<!--头部-->
+<view class="header">
+<view class="header_address">
+<view class="address_info" bindtap="address_1">
+<image src="/image/address.png" class="address"></image>
+<view>{{city}}</view>
+<image src="/image/18.png" class="right"></image>
+</view>
+</view>
+<form bindsubmit="form">
+  <view>
+    <input  name="text" placeholder="搜索你想要的内容....." value="{{getName}}"/>
+    <button formType="submit">搜索</button>
+  </view>  
+</form>
+</view>
+<!--头部结束-->
+<view wx:if="{{ datas.length == 0 }}">
+<view class="history">搜索历史</view>
+<view class="history_1" >
+<view wx:for="{{searchRecord}}" data-name="{{item.value}}" bindtap="click">
+<view class="box">{{item.value}}</view>
+</view>
+</view>
+</view>
+
+<!--列表-->
+<view class="info" wx:if="{{ datas.length != 0 }}">
+<view class="list"wx:for="{{datas}}" >
+<view class="list_info" data-id="{{item.id}}" bindtap="list">
+<image src="{{imageurl}}{{item.default_imgurl}}"></image>
+<view class="name">{{item.pname}}</view>
+<view class="list_money">
+<view class="money">￥<text>{{item.now_price}}</text></view>
+<view class="num">
+<view>销量</view>
+<text>{{item.zong_sell_count}}</text>
+</view>
+</view>
+</view>
+</view>
+</view>
+

@@ -1,0 +1,159 @@
+<view class="header"></view>
+
+<view class="bg">
+<view class="day" bindtap="day">
+<view class="day_info"  bindtap="showModal">
+<view>全部账户</view>
+<image src="/image/50.png"></image>
+</view>
+</view>
+
+
+<!--我的资产-->
+<view class="in" wx:if="{{index == 2}}">
+<view class="in_name" >我的积分</view>
+<view class="in_money">￥<text>{{index_data.integral}}</text></view>
+<view class="in_info">
+<view class="in_info_1">
+<view>昨天收益</view>
+<text>￥<text>{{index_data.get_integral_num}}</text></text>
+</view>
+<view class="in_info_2">
+<view>累计收益</view>
+<text>￥<text>{{index_data.zong_integral_num}}</text></text>
+</view>
+</view>
+</view>
+
+<!--我的资产-->
+<view class="in" wx:if="{{index == 1}}">
+<view class="in_name" >我的资产</view>
+<view class="in_money">￥<text>{{index_data.balance}}</text></view>
+<view class="in_info">
+<view class="in_info_1">
+<view>昨天收益</view>
+<text>￥<text>{{index_data.get_money_num}}</text></text>
+</view>
+<view class="in_info_2">
+<view>累计收益</view>
+<text>￥<text>{{index_data.zong_money_num}}</text></text>
+</view>
+</view>
+</view>
+
+<view class="money">
+<view class="money_name {{ index == 1 ? '':'conceal'}}">可用余额：<text>{{index_data.balance}}</text></view>
+<view class="money_name {{ index == 2 ? '':'conceal'}}">可用积分：<text>{{index_data.integral}}</text></view>
+
+<view class="money_info {{ index == 1 ? '':'conceal'}}">
+<text bindtap="money">提现</text>
+</view>
+</view>
+
+<view class="under">
+<view wx:if="{{index == 1}}">交易明细</view>
+<view wx:if="{{index == 2}}">积分明细</view>
+<text>刷新</text>
+</view>
+
+
+<!--收入支出-->
+
+
+
+<!--我的资产-->
+<view>
+<view class="income" wx:if="{{index == 1}}">
+<view wx:for="{{index_data.money_log}}">
+<view class="income_all {{item.type == 0 ? '':'conceal'}}" data-id="{{item.batchcode}}">
+<view class="income_info">
+<view>收入</view>
+<text>{{item.remark}}</text>
+</view>
+<view class="income_name">
+<view class="income_name_money">+￥<text>{{item.money}}</text></view>
+<view class="income_name_info">{{item.createtime}}</view>
+</view>
+</view>
+
+<view class="income_all {{item.type == 1 ? '':'conceal'}}"  data-id="{{item.batchcode}}">
+<view class="income_info_1">
+<view>支出</view>
+<text>{{item.remark}}</text>
+</view>
+<view class="income_name">
+<view class="income_name_money">-￥<text>{{item.money}}</text></view>
+<view class="income_name_info">{{item.createtime}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+
+<!--我的积分-->
+<view >
+<view class="income" wx:if="{{ index == 2}}">
+<view wx:for="{{index_data.integral_log}}">
+<view class="income_all {{item.type == 0 ? '':'conceal'}}" data-id="{{item.batchcode}}">
+<view class="income_info">
+<view>收入</view>
+<text>{{item.remark}}</text>
+</view>
+<view class="income_name">
+<view class="income_name_money">+<text>{{item.money}}</text>积分</view>
+<view class="income_name_info">{{item.createtime}}</view>
+</view>
+</view>
+
+<view class="income_all {{item.type == 1 ? '':'conceal'}}"  data-id="{{item.batchcode}}">
+<view class="income_info_1">
+<view>支出</view>
+<text>{{item.remark}}</text>
+</view>
+<view class="income_name">
+<view class="income_name_money">-<text>{{item.money}}</text>积分</view>
+<view class="income_name_info">{{item.createtime}}</view>
+</view>
+</view>
+</view>
+</view>
+</view>
+
+</view>
+
+
+<!--隐藏的地方-->
+<view class="hide" wx:if="{{hide}}">
+<view class="mark" bindtap="hideModal"></view>
+<view class="footer">
+<view class="footer_info">
+<view></view>
+<view>全部资产</view>
+<image src="/image/30.png" bindtap="hideModal"></image>
+</view>
+<view  bindtap="my" data-index="1">
+<view class="footer_name" bindtap="hideModal">
+<view>我的零钱</view>
+<checkbox checked="{{check}}"/>
+</view>
+</view>
+<view data-index="2" bindtap="my" >
+<view class="footer_name_1" bindtap="hideModal" >
+<view>我的积分</view>
+<checkbox checked="{{check_1}}"/>
+</view>
+</view>
+
+</view>
+
+</view>
+
+
+
+
+
+
+
+
+

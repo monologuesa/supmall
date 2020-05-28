@@ -1,0 +1,45 @@
+<view class="header"></view>
+
+<!--评价-->
+<view class="assess_all">
+<view class="assess"  wx:for="{{index_data}}" >
+<view class="assess_image" >
+<view class="assess_image_image"><image src="{{item.weixin_headimgurl}}"></image></view>
+<view class="name_2">{{item.weixin_name}}</view>
+</view>
+<view >
+<view class="assess_info" >
+<view>{{item.discuss}}</view>
+<!-- <text>爱上の果网红风格实体店铺</text> -->
+</view>
+
+<view class="assess_img">
+<view class="assess_img_img"  wx:for="{{item.discussimg_arr}}" wx:for-item="p"><image src="{{imageUrl}}{{p}}" mode="widthFix"></image></view>
+</view>
+<view class="time">{{item.createtime}}</view>
+</view>
+
+<view class="button1">
+<view class="button_1" data-id="{{item.e_id}}" bindtap="detail">回复</view>
+</view>
+
+<!-- <view class="button"  >
+<view class="button1" wx:if="{{item.status == 1 }}">
+<view class="button_1" data-name="del" data-id="{{item.e_id}}" bindtap="click">删除</view>
+<view class="button_1" data-name="reject" data-id="{{item.e_id}}" bindtap="click">驳回</view>
+</view>
+<view class="button1" wx:if="{{item.status == 0 }}">
+<view class="button_1" data-name="del" data-id="{{item.e_id}}" bindtap="click">删除</view>
+<view class="button_1" data-name="transit" data-id="{{item.e_id}}" bindtap="click">通过</view>
+</view>
+
+
+</view> -->
+</view>
+
+
+
+
+
+</view>
+

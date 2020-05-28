@@ -1,0 +1,72 @@
+.header{
+  height: 80rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+}
+.top_info{
+  width: 90%;
+  margin-left: 5%;
+  height: 200rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+  border-radius: 20rpx;
+  margin-top: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.img{
+  height: 80rpx;
+  width: 80rpx;
+}
+.img image{
+  height: 100%;
+  width: 100%;
+}
+.top_info_image{
+  display: flex;
+  margin-left: 25rpx;
+}
+.name{
+  margin-left: 20rpx;
+  color: #ffffff;
+}
+.name_name{
+  font-size: 34rpx;
+  margin-top: -15rpx;
+  margin-bottom: 10rpx;
+}
+.name_wxchat{
+  font-size: 30rpx;
+  margin-top: 25rpx;
+}
+.money_info{
+  color: #ffffff;
+  font-size: 35rpx;
+  margin-right: 30rpx;
+}
+.botton{
+  width: 70%;
+  height: 80rpx;
+  margin-left: 15%;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  border: 5rpx solid #dcdcdc;
+  font-size: 32rpx;
+  color:rgba(102,102,102,1);
+  margin-top: 80rpx;
+}
+.botton1{
+  width: 70%;
+  height: 80rpx;
+  margin-left: 15%;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  border: 5rpx solid #dcdcdc;
+  font-size: 32rpx;
+  color:#ffffff;
+  margin-top: 30rpx;
+  background-image: linear-gradient(#62A5FF, #29C0D9);
+}
+
+

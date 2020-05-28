@@ -1,0 +1,123 @@
+Travelfood    旅游美食  
+
+
+adpay  专属电话
+adsuccess  支付成功
+cart  购物车
+foosList  美食列表
+gold 金牌店铺
+goldShop  金牌店铺主页
+index 主页
+collect  收藏夹内容
+
+payOrder  支付订单
+person 个人中心
+release  商家管理中的可发布产品，，已发布产品，，库存产品，
+rank   商家管理 排行榜
+rankM    商家管理 排行榜----店铺刷新
+rankMp   商家管理 排行榜----店铺刷新成功
+refresh 商家管理-----保证金缴纳
+refreshPay  商家管理-----保证金缴纳成功
+management  商家管理
+comment 商家管理 -----评论管理
+commentInfo 商家管理 -----评论详情
+myOrder  商家管理   订单管理
+adM            商家管理-创建广告位 
+ad  广告位
+adS  商家管理-----创建广告位 成功
+shopRank  商品排行
+shopRM  商品刷新订单
+updata    商家管理中的更新资料
+
+
+shop  物品详情
+shopAssess  物品详情   评价
+
+
+shopDetail  待付款-订单详情   
+ship  待发货-订单详情 
+complete  待收货  -订单详情 
+invalid  待评价  -订单详情 
+down 已完成  -订单详情 
+after  售后-订单详情 
+
+
+search  首页搜索
+more  查看更多
+recommend   优选推荐
+preferred    优选商家
+spec   优选特产
+
+traveList   旅游攻略
+
+temple  寺庙详情    攻略详情-----旅游美食，美食攻略，旅游攻略的详情都在这里
+ 
+
+
+attractions 寺庙景点
+
+
+specialty  当地特产
+integral  积分商城   签到
+check   签到记录  积分商城记录
+purse  我的钱包
+in  入驻商申请
+ins  入驻商申请成功
+inf  入驻商申请失败
+notice   消息通知
+service 客服
+info   客服问题的页面
+
+repuest  请香祈福  请
+
+
+refund   退款
+fund   退款详情    //这个貌似是用不到的
+fail  退款失败
+address  收货地址
+addressM  收货地址管理
+my  我的订单
+money  提现
+new  提现分类
+bankcard  银行卡提现
+wxchat   微信提现
+
+
+
+blessing   祈福地址         
+blesspay  祈福支付订单
+blessS    祈福成功
+please  请香
+pleases  请香成功
+
+
+
+post  发表评论
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
